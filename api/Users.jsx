@@ -1,3 +1,3 @@
 import instance from './Connection';
 
-export const GetAllUsers = () => instance.get('/');
+export const GetAllUsers = () => instance.get('/users');

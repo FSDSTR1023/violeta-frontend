@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -8,8 +9,8 @@ const Navbar = () => {
         <span className="text-xl font-semibold">Trailnest</span>
       </div>
       <div className="flex gap-4">
-        <a href="#" className="hover:text-gray-300">Login</a>
-        <a href="#" className="hover:text-gray-300">Register</a>
+        <a href="/users" className="hover:text-gray-300">Users</a>
+        <a href="/rutas" className="hover:text-gray-300">Rutas</a>
       </div>
     </nav>
   );

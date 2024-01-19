@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { Login } from '../../api/Users';
 
 const LogIn = () => {
-  const nickameRef = useRef();
+  const nicknameRef = useRef();
   const passwordRef = useRef();
 
   const logInHandler = () => {

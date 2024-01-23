@@ -4,7 +4,9 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import ListAllUsers from './components/Userslist';
 import ListAllRutas from './components/Rutaslist';
+import CreateRuta from './components/CreateRuta';
 import LogIn from './components/LogIn';
+import SignUp from './components/SignUp';
 import Footer from './components/Footer';
 import RutaRandom from './components/RutaRandom';
 import RutasPorZona from './components/RutasPorZona.jsx';
@@ -27,12 +29,17 @@ function App() {
                 <Route path="/" element={<Home />} />   
                 <Route path="/users" element={<ListAllUsers />} />
                 <Route path="/rutas" element={<ListAllRutas />} />
+                <Route path="/createruta" element={<CreateRuta />} />
                 <Route path="/login" element={<LogIn />} />
+<<<<<<< HEAD
                 <Route path="/ruta-random" element={<RutaRandom />} />
                 <Route path="/rutas-por-zona" element={<RutasPorZona />} />
                 <Route path="/rutas-por-tiempo" element={<RutasPorTiempo />} />
                 <Route path="/rutas-mejor-valoradas" element= {<RutasMejorValoradas />} />
               
+=======
+                <Route path="/signup" element={<SignUp />} />
+>>>>>>> c7bf3e41a61ed6e71ad99e095851d106c49c3624
               </Routes>
             </div>
           </main>

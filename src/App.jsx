@@ -20,7 +20,7 @@ function App() {
       <BrowserRouter>
         <div>
           <Navbar />
-          <Home />
+          
 
 
           <main>
@@ -31,15 +31,11 @@ function App() {
                 <Route path="/rutas" element={<ListAllRutas />} />
                 <Route path="/createruta" element={<CreateRuta />} />
                 <Route path="/login" element={<LogIn />} />
-<<<<<<< HEAD
                 <Route path="/ruta-random" element={<RutaRandom />} />
                 <Route path="/rutas-por-zona" element={<RutasPorZona />} />
                 <Route path="/rutas-por-tiempo" element={<RutasPorTiempo />} />
                 <Route path="/rutas-mejor-valoradas" element= {<RutasMejorValoradas />} />
               
-=======
-                <Route path="/signup" element={<SignUp />} />
->>>>>>> c7bf3e41a61ed6e71ad99e095851d106c49c3624
               </Routes>
             </div>
           </main>

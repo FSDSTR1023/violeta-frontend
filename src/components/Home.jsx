@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../components/styles/Home.css'
+
 const Home = () => {
   return (
 <>
@@ -59,13 +59,13 @@ export default Home;
 const BlogCard = ({ image, date, cardTitle, cardDescription, to }) => {
   return (
     <div className="w-full px-4 md:w-1/2 lg:w-1/3">
-      <div className="mb-10 w-full ">
+      <div className="mb-10 w-full flex flex-col items-center">
         <div className="mb-8 overflow-hidden rounded">
           <img src={image} alt="" className="w-full" />
         </div>
-        <div>
+        <div className="text-center">
           {date && (
-            <span className="mb-5 inline-block rounded bg-primary px-4 py-1 text-center text-xs font-semibold leading-loose text-white ">
+            <span className="mb-5 inline-block rounded bg-primary px-4 py-1 text-xs font-semibold leading-loose text-white">
               {date}
             </span>
           )}

@@ -31,6 +31,7 @@ function App() {
                 <Route path="/rutas" element={<ListAllRutas />} />
                 <Route path="/createruta" element={<CreateRuta />} />
                 <Route path="/login" element={<LogIn />} />
+                <Route path="/signup" element={<SignUp />} />
                 <Route path="/ruta-random" element={<RutaRandom />} />
                 <Route path="/rutas-por-zona" element={<RutasPorZona />} />
                 <Route path="/rutas-por-tiempo" element={<RutasPorTiempo />} />

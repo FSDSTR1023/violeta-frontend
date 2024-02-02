@@ -30,7 +30,7 @@ const CreateRuta = () => {
     e.preventDefault();
 
     try {
-      const response = await instance.post('/rutas', rutaData);
+      const response = await createRuta(rutaData);
       console.log('Route created successfully:', response.data);
       navigate('/rutas');
 

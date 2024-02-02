@@ -9,11 +9,14 @@ const Navbar = () => {
 
   useEffect(() => {
     getProfile();
-    navigate('/', { replace: true });
   }, []);
 
-  console.log(profile);
+  console.log('Profile ', profile);
 
+  const handleLogout = () => {
+    closeSession();
+    navigate('/');
+  };
 
   return (
     <nav className="bg-gray-800 text-white p-4 flex justify-between items-center">
@@ -22,17 +25,17 @@ const Navbar = () => {
         <Link to='/' className="text-xl font-semibold">Trailnest</Link>
       </div>
       <ul className="flex gap-4">
-        <li><Link to="/users" className="hover:text-gray-300">Users</Link></li>
         <li><Link to="/rutas" className="hover:text-gray-300">Rutas</Link></li>
         <li><Link to="/createruta" className="hover:text-gray-300">Ruta nueva</Link></li>
         
         {profile ? (
           <>
             <li><Link to="/profile" className="hover:text-gray-300">{profile.nickname}</Link></li>
-            <li><button onClick={closeSession} className="hover:text-gray-300">Logout</button></li>
+            <li><button onClick={handleLogout} className="hover:text-gray-300">Logout</button></li>
           </>
         ) : (
           <>
+            <li><Link to="/users" className="hover:text-gray-300">Users</Link></li>
             <li><Link to="/login" className="hover:text-gray-300">Log In</Link></li>
             <li><Link to="/signup" className="hover:text-gray-300">Sign Up</Link></li>
           </>

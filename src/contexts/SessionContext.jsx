@@ -8,7 +8,6 @@ const SessionContext = createContext();
 
 export const SessionProvider = ({ children }) => {
   const [profile, setProfile] = useState(null);
-  const [authenticated, setAuthenticated] = useState(false);
 
   const getProfile = async () => {
     profileUser()
@@ -25,6 +24,7 @@ export const SessionProvider = ({ children }) => {
   const closeSession = async () => {
     try {
       await logOutUser();
+      setProfile(null);
     } catch (error) {
       console.error('Logout failed:', error.message);
     }

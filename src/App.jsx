@@ -1,5 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Link, Routes, Route} from "react-router-dom";
+import { SessionProvider } from './contexts/SessionContext.jsx';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import ListAllUsers from './components/Userslist';
@@ -12,13 +13,14 @@ import RutaRandom from './components/RutaRandom';
 import RutasPorZona from './components/RutasPorZona.jsx';
 import RutaPorTiempo from './components/RutasPorTiempo';
 import RutasMejorValoradas from './components/RutasMejorValoradas';
+import UserProfile from './components/Profile';
 
 function App() {
 
   return (
     <>
       <BrowserRouter>
-        <div>
+        <SessionProvider>
           <Navbar />
           
           <main>
@@ -34,11 +36,12 @@ function App() {
                 <Route path="/rutas-por-zona" element={<RutasPorZona />} />
                 <Route path="/ruta-por-tiempo" element={<RutaPorTiempo />} />
                 <Route path="/rutas-mejor-valoradas" element= {<RutasMejorValoradas />} />
+                <Route path="/profile" element={<UserProfile />} />
               </Routes>
             </div>
           </main>
           <Footer />
-        </div>
+        </SessionProvider>
       </BrowserRouter>
     </>
     

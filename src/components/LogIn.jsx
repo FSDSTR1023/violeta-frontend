@@ -1,18 +1,13 @@
-import { profileUser, loginUser } from "../../api/Users"
+import { profileUser, loginUser } from "../../api/Users";
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import { useSession } from '../contexts/SessionContext';
 
 function LogIn() {
   const nicknameRef = useRef();
   const passwordRef = useRef();
-  const [profile, setProfile] = useState(null);
-
-  const getProfile = () => {
-    profileUser()
-    .then((res) => setProfile(res.data))
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  const { getProfile, setProfile } = useSession();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getProfile();
@@ -23,12 +18,14 @@ function LogIn() {
     const password = passwordRef.current.value;
 
     loginUser({ nickname, password })
-    .then((_res) => {
-        console.log(_res)
+      .then((_res) => {
+        console.log('loginUser:', _res);
         getProfile();
+        navigate('/');
       })
       .catch((err) => {
         console.log("Error during login: ", err);
+        setLoading(false);
       });
   };
 

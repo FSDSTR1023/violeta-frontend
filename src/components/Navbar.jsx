@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSession } from '../contexts/SessionContext';
-import { logOutUser } from '../../api/Users'
 
 
 const Navbar = () => {
   const { getProfile, profile } = useSession();
+  const { closeSession } = useSession();
 
   useEffect(() => {
     getProfile();
@@ -27,7 +27,7 @@ const Navbar = () => {
         {profile ? (
           <>
             <li><Link to="/profile" className="hover:text-gray-300">{profile.nickname}</Link></li>
-            <li><button onClick={logOutUser} className="hover:text-gray-300">Logout</button></li>
+            <li><button onClick={closeSession} className="hover:text-gray-300">Logout</button></li>
           </>
         ) : (
           <>

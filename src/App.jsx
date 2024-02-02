@@ -21,8 +21,6 @@ function App() {
         <div>
           <Navbar />
           
-
-
           <main>
             <div className="card pb-8">
               <Routes>

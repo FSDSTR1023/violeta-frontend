@@ -8,7 +8,7 @@ const SessionContext = createContext();
 
 export const SessionProvider = ({ children }) => {
   const [profile, setProfile] = useState(null);
-  const navigate = useNavigate();
+  const [authenticated, setAuthenticated] = useState(false);
 
   const getProfile = async () => {
     profileUser()
@@ -25,7 +25,6 @@ export const SessionProvider = ({ children }) => {
   const closeSession = async () => {
     try {
       await logOutUser();
-      navigate('/');
     } catch (error) {
       console.error('Logout failed:', error.message);
     }

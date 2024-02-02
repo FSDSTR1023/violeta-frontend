@@ -1,17 +1,19 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSession } from '../contexts/SessionContext';
 
 
 const Navbar = () => {
-  const { getProfile, profile } = useSession();
-  const { closeSession } = useSession();
+  const { getProfile, profile, closeSession } = useSession();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getProfile();
+    navigate('/', { replace: true });
   }, []);
 
   console.log(profile);
+
 
   return (
     <nav className="bg-gray-800 text-white p-4 flex justify-between items-center">

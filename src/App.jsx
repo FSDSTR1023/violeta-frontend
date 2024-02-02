@@ -10,7 +10,7 @@ import SignUp from './components/SignUp';
 import Footer from './components/Footer';
 import RutaRandom from './components/RutaRandom';
 import RutasPorZona from './components/RutasPorZona.jsx';
-import RutasPorTiempo from './components/RutasPorTiempo';
+import RutaPorTiempo from './components/RutasPorTiempo';
 import RutasMejorValoradas from './components/RutasMejorValoradas';
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/ruta-random" element={<RutaRandom />} />
                 <Route path="/rutas-por-zona" element={<RutasPorZona />} />
-                <Route path="/rutas-por-tiempo" element={<RutasPorTiempo />} />
+                <Route path="/ruta-por-tiempo" element={<RutaPorTiempo />} />
                 <Route path="/rutas-mejor-valoradas" element= {<RutasMejorValoradas />} />
               </Routes>
             </div>

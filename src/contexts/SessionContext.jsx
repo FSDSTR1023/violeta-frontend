@@ -1,13 +1,16 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { profileUser } from "../../api/Users";
+import { logOutUser } from "../../api/Users";
 
 const SessionContext = createContext();
 
 
 export const SessionProvider = ({ children }) => {
   const [profile, setProfile] = useState(null);
+  const navigate = useNavigate();
 
-  const getProfile = () => {
+  const getProfile = async () => {
     profileUser()
     .then((res) => setProfile(res.data))
       .catch((err) => {
@@ -19,20 +22,32 @@ export const SessionProvider = ({ children }) => {
     getProfile();
   }, []);
   
-    return (
-      <SessionContext.Provider value={{ 
-        getProfile,
-        profile
-      }}>
-        {children}
-      </SessionContext.Provider>
-    );
+  const closeSession = async () => {
+    try {
+      await logOutUser();
+      navigate('/');
+    } catch (error) {
+      console.error('Logout failed:', error.message);
+    }
   };
 
+  return (
+    <SessionContext.Provider value={{ 
+      getProfile,
+      profile,
+      closeSession
+    }}>
+      {children}
+    </SessionContext.Provider>
+  );
+};
+
 export const useSession = () => {
-    const context = useContext(SessionContext);
-    if (!context) {
-      throw new Error(err);
-    }
-    return context;
-  };
+  const context = useContext(SessionContext);
+  if (!context) {
+    throw new Error("useSession must be used within a SessionProvider");
+  }  
+  return context;
+};
+
+

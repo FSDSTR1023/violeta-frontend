@@ -36,7 +36,6 @@ function App() {
                 <Route path="/rutas-por-zona" element={<RutasPorZona />} />
                 <Route path="/rutas-por-tiempo" element={<RutasPorTiempo />} />
                 <Route path="/rutas-mejor-valoradas" element= {<RutasMejorValoradas />} />
-              
               </Routes>
             </div>
           </main>

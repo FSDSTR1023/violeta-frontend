@@ -7,7 +7,7 @@ function LogIn() {
   const [profile, setProfile] = useState(null);
 
   const getProfile = () => {
-    profileUser
+    profileUser()
     .then((res) => setProfile(res.data))
       .catch((err) => {
         console.log(err);

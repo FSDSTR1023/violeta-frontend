@@ -15,6 +15,7 @@ import RutaPorTiempo from './components/RutasPorTiempo';
 import RutasMejorValoradas from './components/RutasMejorValoradas';
 import UserProfile from './components/Profile';
 import OwnRutas from './components/OwnRutas';
+import UpdateRuta from './components/UpdateRuta';
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
                 <Route path="/rutas-mejor-valoradas" element= {<RutasMejorValoradas />} />
                 <Route path="/profile" element={<UserProfile />} />
                 <Route path="/myrutas" element={<OwnRutas />} />
+                <Route path="/update-ruta/:rutaId" element={<UpdateRuta />}/>
               </Routes>
             </div>
           </main>

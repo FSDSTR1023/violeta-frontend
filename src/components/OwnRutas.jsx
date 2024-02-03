@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { GetAllRutas } from '../../api/Rutas';
+import { GetAllRutas, deleteRuta, updateRuta } from '../../api/Rutas';
 import { useSession } from '../contexts/SessionContext';
+import { useNavigate } from 'react-router-dom';
 
 function OwnRutas() {
   const [rutas, setRutas] = useState([]);
   const { getProfile, profile } = useSession();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getProfile();
@@ -23,19 +25,7 @@ function OwnRutas() {
 
   const handleRutaUpdate = (ruta) => {
     if (ruta.creator === profile._id) {
-      setUpdateRutaFormData({
-        name: ruta.name,
-        location: ruta.location,
-        distance: ruta.distance,
-        difficulty: ruta.difficulty,
-        maxElevation: ruta.maxElevation,
-        minElevation: ruta.minElevation,
-        description: ruta.description,
-        totalTimeSpent: ruta.totalTimeSpent,
-        trailType: ruta.trailType,
-        imageUrl: ruta.imageUrl,
-      });
-      setUpdatingRutaId(ruta._id);
+      navigate(`/update-ruta/${ruta._id}`);
     } else {
       console.error('You are not the creator of this route. Update not allowed.');
     }
@@ -43,8 +33,7 @@ function OwnRutas() {
   
   
   const handleRutaDelete = async (ruta) => {
-    console.log('ruta object:', ruta);
-  
+ 
     if (!ruta || !ruta._id) {
       console.error('Invalid ruta or ruta ID');
       return;

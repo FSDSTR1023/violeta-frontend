@@ -14,6 +14,7 @@ import RutasPorZona from './components/RutasPorZona.jsx';
 import RutaPorTiempo from './components/RutasPorTiempo';
 import RutasMejorValoradas from './components/RutasMejorValoradas';
 import UserProfile from './components/Profile';
+import OwnRutas from './components/OwnRutas';
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
                 <Route path="/ruta-por-tiempo" element={<RutaPorTiempo />} />
                 <Route path="/rutas-mejor-valoradas" element= {<RutasMejorValoradas />} />
                 <Route path="/profile" element={<UserProfile />} />
+                <Route path="/myrutas" element={<OwnRutas />} />
               </Routes>
             </div>
           </main>

@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSession } from '../contexts/SessionContext';
-
 
 const Navbar = () => {
   const { getProfile, profile, closeSession } = useSession();
@@ -11,11 +10,27 @@ const Navbar = () => {
     getProfile();
   }, []);
 
-  console.log('Profile ', profile);
+  const Dropdown = () => {
+    const [isOpen, setIsOpen] = useState(false);
 
-  const handleLogout = () => {
-    closeSession();
-    navigate('/');
+    const handleLogout = () => {
+      closeSession();
+      navigate('/');
+    };
+
+    return (
+      <div className="relative">
+        <button className='w-36' onClick={() => setIsOpen(!isOpen)}>{profile.nickname}</button>
+        {isOpen && (
+          <div className="absolute right-0 mt-2 bg-white border rounded-md shadow-md p-2 w-36">
+            <li className="mb-2"><Link to="/profile" className="text-gray-800">My profile</Link></li>
+            <li className="mb-2"><Link to="/createruta" className="text-gray-800">Ruta nueva</Link></li>
+            <li className="mb-2"><Link to="/myrutas" className="text-gray-800">Mis rutas</Link></li>
+            <li className="mb-2"><button onClick={handleLogout} className="text-gray-800">Logout</button></li>
+          </div>
+        )}
+      </div>
+    );
   };
 
   return (
@@ -26,13 +41,9 @@ const Navbar = () => {
       </div>
       <ul className="flex gap-4">
         <li><Link to="/rutas" className="hover:text-gray-300">Rutas</Link></li>
-        <li><Link to="/createruta" className="hover:text-gray-300">Ruta nueva</Link></li>
         
         {profile ? (
-          <>
-            <li><Link to="/profile" className="hover:text-gray-300">{profile.nickname}</Link></li>
-            <li><button onClick={handleLogout} className="hover:text-gray-300">Logout</button></li>
-          </>
+          <Dropdown />
         ) : (
           <>
             <li><Link to="/users" className="hover:text-gray-300">Users</Link></li>

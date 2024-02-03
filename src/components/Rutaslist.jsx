@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { GetAllRutas, deleteRuta } from '../../api/Rutas';
+import { GetAllRutas } from '../../api/Rutas';
 
 function ListAllRutas() {
   const [rutas, setRutas] = useState([]);
@@ -13,24 +13,6 @@ function ListAllRutas() {
         console.error('Error fetching rutas:', error);
       });
   }, []);
-
-  const handleRutaDelete = async (ruta) => {
-    console.log('ruta object:', ruta);
-  
-    if (!ruta || !ruta._id) {
-      console.error('Invalid ruta or ruta ID');
-      return;
-    }
-  
-    try {
-      await deleteRuta(ruta._id);
-      setRutas(prevRutas => prevRutas.filter(u => u._id !== ruta._id));
-      console.log(`Ruta with ID ${ruta._id} deleted`);
-
-    } catch (error) {
-      console.error(`Error deleting ruta with ID ${ruta._id}:`, error);
-    }
-  };
 
   const excludedProperties = ['_id', 'weather', 'createdAt', 'modifiedAt', 'deletedAt', 'date', 'imageUrl', 'creator', 'user', 'updatedAt', '__v' ];
 
@@ -48,11 +30,9 @@ function ListAllRutas() {
                 </p>
               )
             ))}
-            <button onClick={() => handleRutaDelete(ruta)}>Delete</button>
           </div>
         ))}
       </div>
-      
     </div>
   );
 }

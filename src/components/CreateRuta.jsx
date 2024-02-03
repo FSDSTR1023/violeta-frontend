@@ -1,23 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import instance from '../../api/Connection';
+import { createRuta } from '../../api/Rutas';
+import { useSession } from '../contexts/SessionContext';
+
 
 const CreateRuta = () => {
+  const { getProfile, profile, closeSession } = useSession();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    getProfile();
+  }, []);
+
+  console.log('Profile ', profile);
+
   const [rutaData, setRutaData] = useState({
     name: '',
     location: '',
     distance: 0,
-    difficulty: '',
+    difficulty: 'Fácil',
     maxElevation: 0,
     minElevation: 0,
     description: '',
     date: new Date(),
     totalTimeSpent: 0,
-    trailType: '',
+    trailType: 'Loop',
     imageUrl: '',
+    creator:  profile._id
   });
-
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setRutaData({
@@ -30,6 +40,7 @@ const CreateRuta = () => {
     e.preventDefault();
 
     try {
+      console.log('Submitting rutaData:', rutaData);
       const response = await createRuta(rutaData);
       console.log('Route created successfully:', response.data);
       navigate('/rutas');
@@ -209,21 +220,6 @@ const CreateRuta = () => {
             name="imageUrl"
             value={rutaData.imageUrl}
             onChange={handleChange}
-            className="border border-gray-300 rounded-md px-3 py-2 w-full"
-          />
-        </div>
-
-        <div className="mb-4">
-          <label htmlFor="creator" className="block mb-1">
-            Creator (Nickname):
-          </label>
-          <input
-            type="text"
-            id="creator"
-            name="creator"
-            value={rutaData.creator}
-            onChange={handleChange}
-            required
             className="border border-gray-300 rounded-md px-3 py-2 w-full"
           />
         </div>

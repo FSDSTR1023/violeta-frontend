@@ -12,10 +12,7 @@ function UpdateRuta() {
   useEffect(() => {
     getRutaById(rutaId)
       .then((response) => {
-        console.log('Response', response.data)
-        console.log('Params', rutaId)
         const rutaInfo = response.data;
-        console.log('Id ruta:', rutaInfo._id)
         setUpdateRutaFormData({
           name: rutaInfo.name,
           location: rutaInfo.location,
@@ -46,8 +43,6 @@ function UpdateRuta() {
     e.preventDefault();
     try {
       await updateRuta(rutaId, updateRutaFormData);
-      console.log(rutaId);
-      console.log(updateRutaFormData)
       console.log('¡La ruta se ha actualizado correctamente!');
       navigate('/myrutas');
     } catch (error) {

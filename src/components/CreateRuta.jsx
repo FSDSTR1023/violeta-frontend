@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createRuta } from '../../api/Rutas';
 import { useSession } from '../contexts/SessionContext';
+import ImageUpload from './UploadImage';
 
 
 const CreateRuta = () => {
-  const { getProfile, profile, closeSession } = useSession();
+  const { getProfile, profile } = useSession();
+  const [image, setImage] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
     getProfile();
   }, []);
-
-  console.log('Profile ', profile);
 
   const [rutaData, setRutaData] = useState({
     name: '',
@@ -26,7 +26,7 @@ const CreateRuta = () => {
     totalTimeSpent: 0,
     trailType: 'Loop',
     imageUrl: '',
-    creator:  profile._id
+    creator: profile._id
   });
 
   const handleChange = (e) => {
@@ -40,8 +40,8 @@ const CreateRuta = () => {
     e.preventDefault();
 
     try {
-      console.log('Submitting rutaData:', rutaData);
-      const response = await createRuta(rutaData);
+      console.log('Image before submission:', image);
+      const response = await createRuta({ ...rutaData, imageUrl: image });
       console.log('Route created successfully:', response.data);
       navigate('/rutas');
 
@@ -53,7 +53,8 @@ const CreateRuta = () => {
   return (
     <div className="container mx-auto">
       <h2 className="text-2xl font-bold mb-4">Create New Route</h2>
-      <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+      {profile ? (
+        <form onSubmit={handleSubmit} className="max-w-md mx-auto">
       <div className="mb-4">
           <label htmlFor="name" className="block mb-1">
             Route Name:
@@ -214,20 +215,16 @@ const CreateRuta = () => {
           <label htmlFor="imageUrl" className="block mb-1">
             Image URL:
           </label>
-          <input
-            type="text"
-            id="imageUrl"
-            name="imageUrl"
-            value={rutaData.imageUrl}
-            onChange={handleChange}
-            className="border border-gray-300 rounded-md px-3 py-2 w-full"
-          />
+          <ImageUpload setImage={setImage}/>
         </div>
 
         <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md">
           Create Route
         </button>
-      </form>
+        </form>
+        ) : (
+          <p>Not logged</p>
+        )} 
     </div>
   );
 

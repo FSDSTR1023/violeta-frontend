@@ -36,7 +36,7 @@ const Navbar = () => {
   return (
     <nav className="bg-gray-800 text-white p-4 flex justify-between items-center">
       <div className="flex items-center">
-        <img src="../img/TrailNest-logos_transparent.png" alt="Logo" className="w-8 mr-2" />
+        <img src="https://res.cloudinary.com/trailnestcloud/image/upload/logo/v1707510978/67da092fba73d78ddc9f74d7db185575_hllda5.jpg" alt="Logo" className="w-8 mr-2 rounded-xl" />
         <Link to='/' className="text-xl font-semibold">Trailnest</Link>
       </div>
       <ul className="flex gap-4">

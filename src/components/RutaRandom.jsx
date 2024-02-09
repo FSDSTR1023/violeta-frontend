@@ -20,6 +20,8 @@ const RandomRuta = () => {
     setRandomRuta(rutas[randomIndex]);
   };
 
+  const excludedProperties = ['_id', 'weather', 'createdAt', 'modifiedAt', 'deletedAt', 'date', 'creator', 'user', 'updatedAt', '__v' ];
+
   return (
     <div className="container mx-auto">
       <h2 className="text-2xl font-bold mb-4">Random Route:</h2>
@@ -27,47 +29,22 @@ const RandomRuta = () => {
         Select Random Route
       </button>
       {randomRuta && (
-        <div className="bg-slate-50 rounded-lg shadow-md p-4">
-          <p className="text-lg font-semibold mb-2">
-            <span className="text-gray-400">Route Name: </span> 
-            <span className="underlined">{randomRuta.name}</span>
-          </p>
-          <p className="text-lg font-semibold mb-2">
-            <span className="text-gray-400">Location: </span> 
-            <span className="underlined">{randomRuta.location}</span>
-          </p>
-          <p className="text-lg font-semibold mb-2">
-            <span className="text-gray-400">Distance (km): </span> 
-            <span className="underlined">{randomRuta.distance}</span>
-          </p>
-          <p className="text-lg font-semibold mb-2">
-            <span className="text-gray-400">Dificulty: </span> 
-            <span className="underlined">{randomRuta.difficulty}</span>
-          </p>
-          <p className="text-lg font-semibold mb-2">
-            <span className="text-gray-400">MaxElevation(m): </span> 
-            <span className="underlined">{randomRuta.maxElevation}</span>
-          </p>
-          <p className="text-lg font-semibold mb-2">
-            <span className="text-gray-400">MinElevation(m): </span> 
-            <span className="underlined">{randomRuta.minElevation}</span>
-          </p>
-          <p className="text-lg font-semibold mb-2">
-            <span className="text-gray-400">Description: </span> 
-            <span className="underlined">{randomRuta.description}</span>
-          </p>
-          <p className="text-lg font-semibold mb-2">
-            <span className="text-gray-400">Time(h): </span> 
-            <span className="underlined">{randomRuta.totalTimeSpent}</span>
-          </p>
-          <p className="text-lg font-semibold mb-2">
-            <span className="text-gray-400">TrailType: </span> 
-            <span className="underlined">{randomRuta.trailType}</span>
-          </p>
-          <p className="text-lg font-semibold mb-2">
-            <span className="text-gray-400">Images: </span> 
-            <span className="underlined"><img src={randomRuta.imageUrl} alt="Cloudinary Image" className="w-52 h-52" /></span>
-          </p>
+        <div>
+          {console.log(randomRuta)}
+          <div key={randomRuta._id} className="bg-slate-50 rounded-lg shadow-md p-4 mb-4">
+            {Object.entries(randomRuta).map(([key, value]) => (
+              !excludedProperties.includes(key) && (
+                <p key={key} className="text-lg font-semibold mb-2 gap-1">
+                  <span className="text-gray-400 capitalize">{key}: </span>
+                  {key === 'imageUrl' ? (
+                    <img src={value} alt="Cloudinary Image" className="w-52 h-52" />
+                  ) : (
+                    <span className="underlined">{value}</span>
+                  )}
+                </p>
+              )
+            ))}
+          </div>
         </div>
       )}
     </div>

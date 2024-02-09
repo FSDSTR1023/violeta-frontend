@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+
 const ImageUpload = ({ setImage }) => {
   const [image, setImageLocal] = useState('');
 
@@ -27,9 +28,9 @@ const ImageUpload = ({ setImage }) => {
 
   return (
     <div>
-      <h1>Upload Image to Cloudinary</h1>
+      <h1>Upload Image</h1>
       <input type="file" onChange={uploadImage} />
-      {image && <img src={image} alt="Uploaded" style={{ width: '200px', height: '200px' }} />}
+      {image && <img src={image} alt="Uploaded" style={{ width: '300px' }} />}
     </div>
   );
 };

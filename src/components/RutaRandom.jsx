@@ -64,7 +64,10 @@ const RandomRuta = () => {
             <span className="text-gray-400">TrailType: </span> 
             <span className="underlined">{randomRuta.trailType}</span>
           </p>
-          {/* Agrega el resto de la información de la ruta que desees mostrar */}
+          <p className="text-lg font-semibold mb-2">
+            <span className="text-gray-400">Images: </span> 
+            <span className="underlined"><img src={randomRuta.imageUrl} alt="Cloudinary Image" className="w-52 h-52" /></span>
+          </p>
         </div>
       )}
     </div>

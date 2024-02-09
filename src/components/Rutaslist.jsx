@@ -14,7 +14,7 @@ function ListAllRutas() {
       });
   }, []);
 
-  const excludedProperties = ['_id', 'weather', 'createdAt', 'modifiedAt', 'deletedAt', 'date', 'imageUrl', 'creator', 'user', 'updatedAt', '__v' ];
+  const excludedProperties = ['_id', 'weather', 'createdAt', 'modifiedAt', 'deletedAt', 'date', 'creator', 'user', 'updatedAt', '__v' ];
 
   return (
     <div className="container mx-auto">
@@ -25,8 +25,12 @@ function ListAllRutas() {
             {Object.entries(ruta).map(([key, value]) => (
               !excludedProperties.includes(key) && (
                 <p key={key} className="text-lg font-semibold mb-2 gap-1">
-                  <span className="text-gray-400 capitalize">{key}: </span> 
-                  <span className="underlined">{value}</span>
+                  <span className="text-gray-400 capitalize">{key}: </span>
+                  {key === 'imageUrl' ? (
+                    <img src={value} alt="Cloudinary Image" className="w-52 h-52" />
+                  ) : (
+                    <span className="underlined">{value}</span>
+                  )}
                 </p>
               )
             ))}

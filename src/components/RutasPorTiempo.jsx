@@ -26,6 +26,8 @@ const RutaPorTiempo = () => {
     setRutasFiltradas(rutasFiltradas);
   };
 
+  const excludedProperties = ['_id', 'weather', 'createdAt', 'modifiedAt', 'deletedAt', 'date', 'creator', 'user', 'updatedAt', '__v' ];
+
   return (
     <div className="container mx-auto">
       <h2 className="text-2xl font-bold mb-4">Ruta por Tiempo:</h2>
@@ -49,44 +51,18 @@ const RutaPorTiempo = () => {
         <div>
           {rutasFiltradas.map(ruta => (
             <div key={ruta._id} className="bg-slate-50 rounded-lg shadow-md p-4 mb-4">
-              <p className="text-lg font-semibold mb-2">
-                <span className="text-gray-400">Route Name: </span> 
-                <span className="underlined">{ruta.name}</span>
-              </p>
-              <p className="text-lg font-semibold mb-2">
-                <span className="text-gray-400">Location: </span> 
-                <span className="underlined">{ruta.location}</span>
-              </p>
-              <p className="text-lg font-semibold mb-2">
-                <span className="text-gray-400">Total Time Spent (min): </span> 
-                <span className="underlined">{ruta.totalTimeSpent}</span>
-              </p>
-
-              <p className="text-lg font-semibold mb-2">
-                <span className="text-gray-400">Distance (km): </span> 
-                <span className="underlined">{ruta.distance}</span>
-              </p>
-              <p className="text-lg font-semibold mb-2">
-                <span className="text-gray-400">Dificulty:</span> 
-                <span className="underlined">{ruta.difficulty}</span>
-              </p>
-              <p className="text-lg font-semibold mb-2">
-                <span className="text-gray-400">MaxElevation(m):</span> 
-                <span className="underlined">{ruta.maxElevation}</span>
-              </p>
-              <p className="text-lg font-semibold mb-2">
-                <span className="text-gray-400">MinElevation(m):</span> 
-                <span className="underlined">{ruta.minElevation}</span>
-              </p>
-              <p className="text-lg font-semibold mb-2">
-                <span className="text-gray-400">Description: </span> 
-                <span className="underlined">{ruta.description}</span>
-              </p>
-              <p className="text-lg font-semibold mb-2">
-                <span className="text-gray-400">TrailType:</span> 
-                <span className="underlined">{ruta.trailType}</span>
-              </p>
-              {/* Agrega el resto de la información de la ruta que desees mostrar */}
+              {Object.entries(ruta).map(([key, value]) => (
+              !excludedProperties.includes(key) && (
+                <p key={key} className="text-lg font-semibold mb-2 gap-1">
+                  <span className="text-gray-400 capitalize">{key}: </span>
+                  {key === 'imageUrl' ? (
+                    <img src={value} alt="Cloudinary Image" className="w-52 h-52" />
+                  ) : (
+                    <span className="underlined">{value}</span>
+                  )}
+                </p>
+              )
+            ))}
             </div>
           ))}
         </div>

@@ -19,7 +19,6 @@ function LogIn() {
 
     loginUser({ nickname, password })
       .then((_res) => {
-        console.log('loginUser:', _res);
         getProfile();
         navigate('/');
       })

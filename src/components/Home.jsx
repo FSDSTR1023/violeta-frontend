@@ -24,22 +24,22 @@ const Home = () => {
 
           <div className="-mx-4 flex flex-row">
           <BlogCard
-          cardTitle="Ruta Random"
+          cardTitle="Rutas Random"
           cardDescription="Embárcate en una experiencia sorpresa con nuestras Rutas Random, donde cada camino es una nueva aventura por descubrir."
           image="https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
           to="/ruta-random"
          />
           <BlogCard
-          cardTitle="Ruta por Tiempo"
+          cardTitle="Rutas por Tiempo"
           cardDescription="Planifica tu viaje a la perfección con nuestras Rutas por Tiempo, personalizadas para adaptarse a cualquier horario y asegurarte una experiencia inolvidable."
           image="https://images.pexels.com/photos/691668/pexels-photo-691668.jpeg"
           to="/ruta-por-tiempo"
           />
           <BlogCard
-          cardTitle="Ruta por Zona"
+          cardTitle="Rutas por Zona"
           cardDescription="Explora las maravillas locales con nuestras Rutas por Zona, diseñadas para sumergirte en la riqueza cultural y natural de cada ubicación única."
           image="https://images.pexels.com/photos/1054218/pexels-photo-1054218.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          to="/ruta-por-zona"
+          to="/rutas-por-zona"
           />
          <BlogCard
           cardTitle="Rutas Recomendadas"

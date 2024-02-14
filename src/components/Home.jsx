@@ -41,12 +41,7 @@ const Home = () => {
           image="https://images.pexels.com/photos/1054218/pexels-photo-1054218.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
           to="/rutas-por-zona"
           />
-         <BlogCard
-          cardTitle="Rutas Recomendadas"
-          cardDescription="Explora experiencias auténticas con nuestras Rutas Recomendadas por la comunidad, diseñadas para brindarte viajes inolvidables sugeridos por otros apasionados exploradores."
-          image="https://images.pexels.com/photos/167684/pexels-photo-167684.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          to="/rutas-recomendadas"
-         />
+         
           </div>
         </div>
       </section>

@@ -1,0 +1,25 @@
+form {
+    width: 30rem;
+    height: 40rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    border: double #1F2937 5px;
+
+    .header-contact {
+        width: 100%;
+        height: 6rem;
+        background-color: #a0a3a8;
+    }
+
+    .header-contact > h2,
+    .header-contact > p {
+        color: #021330;
+        text-align: left;
+        padding: 0.5rem;
+        font-size: 2rem;
+        margin: 0;
+    }
+
+}

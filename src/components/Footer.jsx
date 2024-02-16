@@ -15,7 +15,7 @@ const Footer = () => {
           Terms of Service
         </a>
       </nav>
-      <div className="flex gap-4"> {/*Change to icons*/}
+      <div className="flex gap-4">
         <a href="#" className="text-xs hover:underline underline-offset-4">Facebook</a>
         <a href="#" className="text-xs hover:underline underline-offset-4">X</a>
         <a href="#" className="text-xs hover:underline underline-offset-4">Instagram</a>

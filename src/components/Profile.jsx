@@ -60,7 +60,7 @@ const EditProfile = () => {
 
   return (
     <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-md shadow-md">
-      <h1 className="text-2xl font-semibold text-center mb-6">Edit Profile</h1>
+      <h2 className="text-xl font-semibold text-center mb-4">Update profile</h2>
       {updateSuccess && (
         <div className="bg-green-200 text-green-800 p-2 mb-4 rounded-md">
           Profile successfully updated!

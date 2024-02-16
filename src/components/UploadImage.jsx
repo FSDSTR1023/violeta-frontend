@@ -17,6 +17,7 @@ const ImageUpload = ({ setImage }) => {
         data
       )
 
+      console.log(uploadRes.data);
       const { secure_url } = uploadRes.data;
       setImageLocal(secure_url);
       setImage(secure_url);

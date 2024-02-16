@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { GetAllRutas, deleteRuta, updateRuta } from '../../api/Rutas';
 import { useSession } from '../contexts/SessionContext';
 import { useNavigate } from 'react-router-dom';
+import { deleteCloudinaryImage } from './deleteCloudinaryImage';
 
 function OwnRutas() {
   const [rutas, setRutas] = useState([]);
@@ -33,20 +34,22 @@ function OwnRutas() {
   
   
   const handleRutaDelete = async (ruta) => {
- 
+    let publicId;
     if (!ruta || !ruta._id) {
       console.error('Invalid ruta or ruta ID');
       return;
     }
-    
+  
     if (ruta.creator === profile._id) {
       try {
-        const publicId = ruta.imageUrl.split('/').pop().split('.')[0];
-        await deleteCloudinaryImage(publicId);
+        for (const deleteImage of ruta.imageUrl) {
+          const publicId = deleteImage.split('/').pop().split('.')[0];
+          await deleteCloudinaryImage(publicId);
+        }
+  
         await deleteRuta(ruta._id);
-        setRutas(prevRutas => prevRutas.filter(u => u._id !== ruta._id));
+        setRutas((prevRutas) => prevRutas.filter((u) => u._id !== ruta._id));
         console.log(`Ruta with ID ${ruta._id} deleted`);
-
       } catch (error) {
         console.error(`Error deleting ruta with ID ${ruta._id}:`, error);
       }

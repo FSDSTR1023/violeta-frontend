@@ -16,6 +16,7 @@ import RutasMejorValoradas from './components/RutasMejorValoradas';
 import UserProfile from './components/Profile';
 import OwnRutas from './components/OwnRutas';
 import UpdateRuta from './components/UpdateRuta';
+import { ContactUs } from './components/contactUs.jsx';
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
             </div>
           </main>
           <Footer />
+          <ContactUs />
         </SessionProvider>
       </BrowserRouter>
     </>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { GetAllRutas, deleteRuta, updateRuta } from '../../api/Rutas';
+import { GetAllRutas, deleteRuta } from '../../api/Rutas';
 import { useSession } from '../contexts/SessionContext';
 import { useNavigate } from 'react-router-dom';
 import { deleteCloudinaryImage } from './deleteCloudinaryImage';
@@ -58,6 +58,10 @@ function OwnRutas() {
     }
   };
 
+  const handleRutaClick = (rutaId) => {
+    navigate(`/ruta/${rutaId}`);
+  };
+
   const excludedProperties = ['_id', 'weather', 'createdAt', 'modifiedAt', 'deletedAt', 'date', 'imageUrl', 'creator', 'user', 'updatedAt', '__v' ];
 
   return (
@@ -67,10 +71,16 @@ function OwnRutas() {
         {rutas.map((ruta) => (
           <div key={ruta._id} className="bg-slate-50 rounded-lg shadow-md p-4 w-72">
             <div className="flex flex-col mb-4">
+              <p className="text-lg font-semibold mb-2 gap-1">
+                <span className="text-gray-400 capitalize">Name: </span>
+                <button className="underlined" onClick={() => handleRutaClick(ruta._id)}>
+                  {ruta.name}
+                </button>
+              </p>
               {Object.entries(ruta).map(([key, value]) => (
-                !excludedProperties.includes(key) && (
+                !excludedProperties.includes(key) && key !== 'name' && (
                   <p key={key} className="text-lg font-semibold mb-2 gap-1">
-                    <span className="text-gray-400 capitalize">{key}: </span> 
+                    <span className="text-gray-400 capitalize">{key}: </span>
                     <span className="underlined">{value}</span>
                   </p>
                 )

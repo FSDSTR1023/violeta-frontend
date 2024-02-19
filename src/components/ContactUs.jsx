@@ -1,10 +1,20 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import '../components/styles/contactUs.css';
 import emailjs from '@emailjs/browser';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSession } from '../contexts/SessionContext';
+
+  
 
 export const ContactUs = () => {
 
     const refForm = useRef();
+    const { getProfile, profile } = useSession();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+      getProfile();
+    }, []);
 
     const handleSubmit = (event) => {
         event.preventDefault();

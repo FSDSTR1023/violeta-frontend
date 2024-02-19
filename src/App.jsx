@@ -16,6 +16,7 @@ import RutasMejorValoradas from './components/RutasMejorValoradas';
 import UserProfile from './components/Profile';
 import OwnRutas from './components/OwnRutas';
 import UpdateRuta from './components/UpdateRuta';
+import RutaProfile from './components/RutaProfile.jsx';
 import { ContactUs } from './components/contactUs.jsx';
 
 function App() {
@@ -41,12 +42,13 @@ function App() {
                 <Route path="/rutas-mejor-valoradas" element= {<RutasMejorValoradas />} />
                 <Route path="/profile" element={<UserProfile />} />
                 <Route path="/myrutas" element={<OwnRutas />} />
-                <Route path="/update-ruta/:rutaId" element={<UpdateRuta />}/>
+                <Route path="/update-ruta/:rutaId" element={<UpdateRuta />}/>                
+                <Route path="/ruta/:rutaId" element={<RutaProfile />}/>
+                <Route path="/contact" element={<ContactUs />}/>
               </Routes>
             </div>
           </main>
           <Footer />
-          <ContactUs />
         </SessionProvider>
       </BrowserRouter>
     </>

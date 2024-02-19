@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { GetAllRutas } from '../../api/Rutas';
 
 function ListAllRutas() {
   const [rutas, setRutas] = useState([]);
+  const navigate = useNavigate();
   
   useEffect(() => {
     GetAllRutas()
@@ -14,6 +16,10 @@ function ListAllRutas() {
       });
   }, []);
 
+  const handleRutaClick = (rutaId) => {
+    navigate(`/ruta/${rutaId}`);
+  };
+
   const excludedProperties = ['_id', 'weather', 'createdAt', 'modifiedAt', 'deletedAt', 'date', 'creator', 'user', 'updatedAt', '__v' ];
 
   return (
@@ -22,8 +28,17 @@ function ListAllRutas() {
       <div className="flex flex-wrap space-x-4 gap-2">
         {rutas.map((ruta) => (
           <div key={ruta._id} className="bg-slate-50 rounded-lg shadow-md p-4 w-72">
+            <p className="text-lg font-semibold mb-2 gap-1">
+              <span className="text-gray-400 capitalize">Name: </span>
+              <button
+                onClick={() => handleRutaClick(ruta._id)}
+                className="underlined cursor-pointer"
+              >
+                {ruta.name}
+              </button>
+            </p>
             {Object.entries(ruta).map(([key, value]) => (
-              !excludedProperties.includes(key) && (
+              !excludedProperties.includes(key) && key !== 'name' && (
                 <p key={key} className="text-lg font-semibold mb-2 gap-1">
                   <span className="text-gray-400 capitalize">{key}: </span>
                   {key === 'imageUrl' ? (
@@ -38,7 +53,7 @@ function ListAllRutas() {
         ))}
       </div>
     </div>
-  );
+  );  
 }
 
 export default ListAllRutas;

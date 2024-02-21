@@ -62,8 +62,6 @@ function OwnRutas() {
     navigate(`/ruta/${rutaId}`);
   };
 
-  const excludedProperties = ['_id', 'weather', 'createdAt', 'modifiedAt', 'deletedAt', 'date', 'imageUrl', 'creator', 'user', 'updatedAt', '__v' ];
-
   return (
     <div className="container mx-auto">
       <h2 className="text-2xl font-bold mb-4">Rutas:</h2>
@@ -77,14 +75,16 @@ function OwnRutas() {
                   {ruta.name}
                 </button>
               </p>
-              {Object.entries(ruta).map(([key, value]) => (
-                !excludedProperties.includes(key) && key !== 'name' && (
-                  <p key={key} className="text-lg font-semibold mb-2 gap-1">
-                    <span className="text-gray-400 capitalize">{key}: </span>
-                    <span className="underlined">{value}</span>
-                  </p>
-                )
-              ))}
+              <p className="text-lg font-semibold mb-2 gap-1">
+                <span className="text-gray-400 capitalize">Date: </span>
+                <span className="underlined">
+                  {new Intl.DateTimeFormat('es-ES', {
+                    day: 'numeric',
+                    month: 'numeric',
+                    year: 'numeric',
+                  }).format(new Date(ruta.date))}
+                </span>
+              </p>
             </div>
             <div className="flex justify-between">
               <button onClick={() => handleRutaUpdate(ruta)}>Update</button>
@@ -94,7 +94,7 @@ function OwnRutas() {
         ))}
       </div>
     </div>
-  );
+  );  
   
 }
 

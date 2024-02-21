@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import TrailNestPhoto from '../img/TrailNest-logos_black.png'
 const Home = () => {
   return (
 <>
@@ -8,14 +8,14 @@ const Home = () => {
         <div className="container mx-auto">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4">
-              <div className="mx-auto mb-[60px] max-w-[510px] text-center lg:mb-20">
+              <div className="-mt-40 mx-auto mb-[60px] max-w-[510px] text-center lg:mb-20">
                 <span className="mb-2 block text-lg font-semibold text-primary">
                   
                 </span>
                 <h2 className="mb-4 text-3xl font-bold text-dark dark:text-white sm:text-4xl md:text-[40px]">
-                  TrailNest
+                  <img src={TrailNestPhoto} alt="TrailNest Logo" className="mx-auto h-auto max-w-full" style={{ maxWidth: "400px" }} />
                 </h2>
-                <p className="text-base text-body-color dark:text-dark-6">
+                <p className="-mt-20 text-base text-body-color dark:text-dark-6">
                 Bienvenido a nuestra plataforma de rutas, tu guía virtual para descubrir destinos fascinantes y actividades emocionantes en cada paso. ¡Sumérgete en la diversidad de experiencias que ofrecemos y haz de cada viaje una historia única para contar!
                 </p>
               </div>

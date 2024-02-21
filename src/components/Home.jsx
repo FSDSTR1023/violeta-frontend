@@ -1,9 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import TrailNestPhoto from '../img/TrailNest-logos_black.png'
+import ImageCarousel from './ImageCarousel';
+const images = [
+  'https://images.unsplash.com/photo-1595586551885-12db6bd260eb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  'https://images.unsplash.com/photo-1682687220199-d0124f48f95b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+];
+
 const Home = () => {
   return (
 <>
+<ImageCarousel images={images} />
       <section className="bg-white pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-[120px]">
         <div className="container mx-auto">
           <div className="-mx-4 flex flex-wrap">

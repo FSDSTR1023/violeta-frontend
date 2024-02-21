@@ -22,7 +22,7 @@ const Navbar = () => {
       <div className="relative">
         <button className='w-36' onClick={() => setIsOpen(!isOpen)}>{profile.nickname}</button>
         {isOpen && (
-          <div className="absolute right-0 mt-2 bg-white border rounded-md shadow-md p-2 w-36">
+          <div className="absolute right-0 mt-2 bg-white border rounded-md shadow-md p-2 w-36 z-10">
             <li className="mb-2"><Link to="/profile" className="text-gray-800">My profile</Link></li>
             <li className="mb-2"><Link to="/createruta" className="text-gray-800">Ruta nueva</Link></li>
             <li className="mb-2"><Link to="/myrutas" className="text-gray-800">Mis rutas</Link></li>

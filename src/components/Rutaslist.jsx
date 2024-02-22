@@ -24,7 +24,7 @@ function ListAllRutas() {
 
   return (
     <div className="container mx-auto">
-      <h2 className="text-2xl font-bold mb-4">Rutas:</h2>
+      <h2 className="text-2xl font-bold mb-4  text-center mt-8">Rutas:</h2>
       <div className="flex flex-wrap space-x-4 gap-2">
         {rutas.map((ruta) => (
           <div key={ruta._id} className="bg-slate-50 rounded-lg shadow-md p-4 w-72">

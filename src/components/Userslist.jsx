@@ -38,7 +38,7 @@ function ListAllUsers() {
 
   return (
     <div className="container mx-auto">
-      <h2 className="text-2xl font-bold mb-4">Users:</h2>
+      <h2 className="text-2xl font-bold mb-4  text-center mt-8">Usuarios:</h2>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {users.map(user => (
           <div key={user.id} className="bg-slate-50 rounded-lg shadow-md p-4">

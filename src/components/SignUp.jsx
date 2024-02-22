@@ -34,11 +34,11 @@ const SignUp = () => {
 
   return (
     <div className="container mx-auto">
-      <h2 className="text-2xl font-bold mb-4">Sign Up</h2>
+      <h2 className="text-2xl font-bold mb-4 text-center mt-8">Registrarse</h2>
       <form onSubmit={handleSubmit} className="max-w-md mx-auto">
         <div className="mb-4">
           <label htmlFor="name" className="block mb-1">
-            Name:
+            Nombre:
           </label>
           <input
             type="text"
@@ -52,7 +52,7 @@ const SignUp = () => {
         </div>
         <div className="mb-4">
           <label htmlFor="lastName" className="block mb-1">
-            Last Name:
+            Apellido:
           </label>
           <input
             type="text"
@@ -65,7 +65,7 @@ const SignUp = () => {
         </div>
         <div className="mb-4">
           <label htmlFor="nickname" className="block mb-1">
-            Nickname:
+            Nombre de usuario:
           </label>
           <input
             type="text"
@@ -79,7 +79,7 @@ const SignUp = () => {
         </div>
         <div className="mb-4">
           <label htmlFor="email" className="block mb-1">
-            Email:
+          Correo electrónico:
           </label>
           <input
             type="email"
@@ -93,7 +93,7 @@ const SignUp = () => {
         </div>
         <div className="mb-4">
           <label htmlFor="password" className="block mb-1">
-            Password:
+            Contraseña:
           </label>
           <input
             type="password"
@@ -105,9 +105,11 @@ const SignUp = () => {
             className="border border-gray-300 rounded-md px-3 py-2 w-full"
           />
         </div>
+        <div className="container mx-auto text-center">
         <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md">
-          Sign Up
+          Registrarse
         </button>
+        </div>
       </form>
     </div>
   );

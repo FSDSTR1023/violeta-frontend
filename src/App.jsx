@@ -18,6 +18,7 @@ import OwnRutas from './components/OwnRutas';
 import UpdateRuta from './components/UpdateRuta';
 import RutaProfile from './components/RutaProfile.jsx';
 import { ContactUs } from './components/contactUs.jsx';
+import { ThankYouPage } from './components/ThankYouPage.jsx';
 
 
 
@@ -49,6 +50,8 @@ function App() {
                 <Route path="/update-ruta/:rutaId" element={<UpdateRuta />}/>                
                 <Route path="/ruta/:rutaId" element={<RutaProfile />}/>
                 <Route path="/contact" element={<ContactUs />}/>
+                <Route path="/thank-you" element={<ThankYouPage />}/>
+
               </Routes>
             </div>
           </main>

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { GetAllRutas } from '../../api/Rutas';
 
 const RandomRuta = () => {
   const [rutas, setRutas] = useState([]);
   const [randomRuta, setRandomRuta] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     GetAllRutas()
@@ -20,6 +22,10 @@ const RandomRuta = () => {
     setRandomRuta(rutas[randomIndex]);
   };
 
+  const handleRutaClick = (rutaId) => {
+    navigate(`/ruta/${rutaId}`);
+  };
+
   const excludedProperties = ['_id', 'weather', 'createdAt', 'modifiedAt', 'deletedAt', 'date', 'creator', 'user', 'updatedAt', '__v' ];
 
   return (
@@ -32,6 +38,15 @@ const RandomRuta = () => {
         <div>
           {console.log(randomRuta)}
           <div key={randomRuta._id} className="bg-slate-50 rounded-lg shadow-md p-4 mb-4">
+            <p className="text-lg font-semibold mb-2 gap-1">
+              <span className="text-gray-400 capitalize">Name: </span>
+              <button
+                onClick={() => handleRutaClick(randomRuta._id)}
+                className="underlined cursor-pointer"
+              >
+                {randomRuta.name}
+              </button>
+            </p>
             {Object.entries(randomRuta).map(([key, value]) => (
               !excludedProperties.includes(key) && (
                 <p key={key} className="text-lg font-semibold mb-2 gap-1">

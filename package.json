@@ -12,8 +12,6 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@cloudinary/react": "^1.13.0",
-    "@cloudinary/url-gen": "^1.17.0",
     "@emailjs/browser": "^4.1.0",
     "@testing-library/react": "^14.1.2",
     "axios": "^1.6.5",

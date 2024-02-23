@@ -17,7 +17,7 @@ import UserProfile from './components/Profile';
 import OwnRutas from './components/OwnRutas';
 import UpdateRuta from './components/UpdateRuta';
 import RutaProfile from './components/RutaProfile.jsx';
-import { ContactUs } from './components/ContactUs.jsx';
+import { ContactUs } from './components/contactUs.jsx';
 
 
 
@@ -49,6 +49,9 @@ function App() {
                 <Route path="/update-ruta/:rutaId" element={<UpdateRuta />}/>                
                 <Route path="/ruta/:rutaId" element={<RutaProfile />}/>
                 <Route path="/contact" element={<ContactUs />}/>
+                <Route path="/thank-you" element={<ThankYouPage />}/>
+                <Route path="/privacy-cookies" element={<TerminosCondiciones />}/>
+
               </Routes>
             </div>
           </main>

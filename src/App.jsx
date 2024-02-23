@@ -17,7 +17,7 @@ import UserProfile from './components/Profile';
 import OwnRutas from './components/OwnRutas';
 import UpdateRuta from './components/UpdateRuta';
 import RutaProfile from './components/RutaProfile.jsx';
-import { ContactUs } from './components/contactUs.jsx';
+import { ContactUs } from './components/ContactUs.jsx';
 
 
 

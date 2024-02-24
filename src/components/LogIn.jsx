@@ -1,3 +1,4 @@
+import { profileUser, loginUser } from "../../api/Users";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useSession } from '../contexts/SessionContext';

@@ -12,7 +12,7 @@ function Footer() {
         <Link to="/contact" className="text-xs hover:underline underline-offset-4">
           Contact
         </Link>
-        <Link to="/terms" className="text-xs hover:underline underline-offset-4">
+        <Link to="/privacy-cookies" className="text-xs hover:underline underline-offset-4">
           Terms of Service
         </Link>
       </nav>

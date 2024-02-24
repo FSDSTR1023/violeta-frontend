@@ -18,9 +18,7 @@ import OwnRutas from './components/OwnRutas';
 import UpdateRuta from './components/UpdateRuta';
 import RutaProfile from './components/RutaProfile.jsx';
 import { ContactUs } from './components/contactUs.jsx';
-
-
-
+import { ThankYouPage } from './components/ThankYouPage.jsx';
 
 
 function App() {
@@ -50,7 +48,6 @@ function App() {
                 <Route path="/ruta/:rutaId" element={<RutaProfile />}/>
                 <Route path="/contact" element={<ContactUs />}/>
                 <Route path="/thank-you" element={<ThankYouPage />}/>
-                <Route path="/privacy-cookies" element={<TerminosCondiciones />}/>
 
               </Routes>
             </div>

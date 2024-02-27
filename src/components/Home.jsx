@@ -30,7 +30,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="-mx-4 flex flex-row">
+          <div className="-mx-4 flex flex-row px-4">
           <BlogCard
           cardTitle="Rutas Random"
           cardDescription="Embárcate en una experiencia sorpresa con nuestras Rutas Random, donde cada camino es una nueva aventura por descubrir."

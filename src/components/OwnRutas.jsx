@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { GetAllRutas, deleteRuta } from '../../api/Rutas';
 import { useSession } from '../contexts/SessionContext';
 import { useNavigate } from 'react-router-dom';
-import { deleteCloudinaryImage } from './deleteCloudinaryImage';
+import deleteCloudinaryImage from './deleteCloudinaryImage';
 
 function OwnRutas() {
   const [rutas, setRutas] = useState([]);
@@ -43,8 +43,10 @@ function OwnRutas() {
     if (ruta.creator === profile._id) {
       try {
         for (const deleteImage of ruta.imageUrl) {
+          console.log('Deleting image ', deleteImage);
           const publicId = deleteImage.split('/').pop().split('.')[0];
-          await deleteCloudinaryImage(publicId);
+          console.log('Public Id is : ' + publicId);
+          await deleteCloudinaryImage(publicId, 'rutas');
         }
   
         await deleteRuta(ruta._id);

@@ -10,6 +10,7 @@ const ImageUpload = ({ setImage }) => {
     const data = new FormData();
     data.append('file', files[0]);
     data.append('upload_preset', import.meta.env.VITE_CLOUDINARY_UNSIGNED_PRESET);
+    data.append('folder', 'rutas');
 
     try {
       const uploadRes = await axios.post(

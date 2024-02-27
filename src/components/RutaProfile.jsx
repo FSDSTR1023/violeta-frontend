@@ -10,57 +10,11 @@ function RutaProfile() {
     getRutaById(rutaId)
       .then((rutaData) => {
         setRuta(rutaData.data);
-        console.log('Fetched ruta data:', rutaData);
       })
       .catch((error) => {
         console.error('Error fetching ruta:', error);
       });
   }, [rutaId]);
-
-  // return (
-  //   <>
-  //     <div className="container mx-auto">
-  //       <h2 className="text-2xl font-bold mb-4">Ruta Details:</h2>
-  //       <div className="flex flex-wrap space-x-4 gap-2">
-  //         <div className="bg-slate-50 rounded-lg shadow-md p-4 w-72">
-  //           <h2 className="text-lg font-bold mb-4">{ruta.name}</h2>
-  //           <p className="text-lg font-semibold mb-2 gap-1">
-  //             <span className="text-gray-400 capitalize">Date: </span>
-  //             <span className="underlined">{ruta.date}</span>
-  //           </p>
-  //           <p className="text-lg font-semibold mb-2 gap-1">
-  //             <span className="text-gray-400 capitalize">Description: </span>
-  //             <span className="underlined">{ruta.description}</span>
-  //           </p>
-  //           <div className="grid gap-2 md:grid-cols-2">
-  //             <button size="lg" variant="outline">
-  //               Start Hike
-  //             </button>
-  //             <button size="lg" variant="outline">
-  //               Save Route
-  //             </button>
-  //           </div>
-  //         </div>
-  //         {ruta && ruta.imageUrl && (
-  //           <div className="flex flex-wrap space-x-4 gap-2">
-  //             {console.log(ruta)}
-  //             {ruta.imageUrl.map((value, i) => (
-  //               <div key={i} className="flex items-center">
-  //                 <img
-  //                   alt={`Photo ${i + 1}`}
-  //                   className="aspect-video overflow-hidden rounded-xl object-bottom"
-  //                   height="200"
-  //                   src={value}
-  //                   width="400"
-  //                 />
-  //               </div>
-  //             ))}
-  //           </div>
-  //         )}
-  //       </div>
-  //     </div>
-  //   </>
-  // );
 
 
   return (

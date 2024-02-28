@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useSession } from '../contexts/SessionContext';
+import { useNavigate } from 'react-router-dom';
 import { updateUser } from '../../api/Users';
 
 const EditProfile = () => {
@@ -18,20 +18,12 @@ const EditProfile = () => {
   const [newPassword, setNewPassword] = useState('');
 
   useEffect(() => {
-    const fetchProfile = async () => {
-      try {
-        await getProfile();
-        if (!profile || !profile._id) {
-          navigate("/login");
-        }
-      } catch (error) {
-        console.error('Error fetching profile:', error);
-        navigate("/login");
-      }
-    };
-
-    fetchProfile();
-  }, [getProfile, navigate, profile]);
+    if (!profile || !profile._id) {
+      console.error('Invalid profile or profile ID');
+      navigate('/login');
+      return;
+    }
+  }, [profile]);
 
   useEffect(() => {
     setFormData(profile || {});

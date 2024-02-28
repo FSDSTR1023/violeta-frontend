@@ -10,28 +10,25 @@ function OwnRutas() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getProfile()
-      .then((profile) => {
-        if (!profile || !profile._id) {
-          navigate("/login");
-        } else {
-          GetAllRutas()
-            .then((response) => {
-              const allRutas = response.data;
-              const filteredRutas = allRutas.filter((ruta) => ruta.creator === profile._id);
-              setRutas(filteredRutas);
-            })
-            .catch((error) => {
-              console.error('Error fetching rutas:', error);
-            });
-        }
+    if (!profile || !profile._id) {
+      console.error('Invalid profile or profile ID');
+      navigate('/login');
+      return;
+    }
+    GetAllRutas()
+      .then((response) => {
+        const allRutas = response.data;
+        const filteredRutas = allRutas.filter((ruta) => ruta.creator === profile._id);
+        setRutas(filteredRutas);
       })
       .catch((error) => {
-        console.error('Error fetching profile:', error);
+        console.error('Error fetching rutas:', error);
       });
-  }, []);
-  
+  }, [profile]);
 
+  if (!profile || !profile._id) {
+    return <div>Loading...</div>;
+  }
 
   
 

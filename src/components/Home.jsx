@@ -11,11 +11,14 @@ const images = [
 const Home = () => {
   return (
 <>
-<ImageCarousel images={images} />
+<div className='w-auto'>
+  <ImageCarousel images={images} />
+</div>
+
       <section className="bg-white pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-[120px]">
         <div className="container mx-auto">
-          <div className="-mx-4 flex flex-wrap">
-            <div className="w-full px-4">
+          <div className="-mx-4 flex flex-wrap pr-8">
+            <div className="w-1/2 px-2">
               <div className="-mt-40 mx-auto mb-[60px] max-w-[510px] text-center lg:mb-20">
                 <span className="mb-2 block text-lg font-semibold text-primary">
                   
@@ -27,6 +30,9 @@ const Home = () => {
                 Bienvenido a nuestra plataforma de rutas, tu guía virtual para descubrir destinos fascinantes y actividades emocionantes en cada paso. ¡Sumérgete en la diversidad de experiencias que ofrecemos y haz de cada viaje una historia única para contar!
                 </p>
               </div>
+            </div>
+            <div className='w-1/2'>
+              <ImageCarousel images={images} />
             </div>
           </div>
 

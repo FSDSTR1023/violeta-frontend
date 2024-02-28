@@ -21,7 +21,7 @@ const ImageCarousel = ({ images }) => {
         {images.map((image, index) => (
           <div key={index} className="h-96">
             {/* h-40 establece una altura máxima de 10cm (40px a la altura predeterminada de 4) */}
-            <img src={image} alt={`Slide ${index}`} className="w-full h-full object-cover" />
+            <img src={image} alt={`Slide ${index}`} className="w-full h-full object-cover rounded-md" />
             {/* La clase object-cover ajusta la imagen para que cubra completamente su contenedor */}
           </div>
         ))}

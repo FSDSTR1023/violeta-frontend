@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "npm run dev",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
@@ -12,6 +13,8 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "@cloudinary/react": "^1.13.0",
+    "@cloudinary/url-gen": "^1.18.0",
     "@emailjs/browser": "^4.1.0",
     "@testing-library/react": "^14.1.2",
     "axios": "^1.6.5",

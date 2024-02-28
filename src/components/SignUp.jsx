@@ -109,7 +109,7 @@ const SignUp = () => {
           />
         </div>
         <div className="container mx-auto text-center">
-        <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md">
+        <button type="submit" className="bg-lime-500 text-white py-2 px-4 rounded-md">
           Registrarse
         </button>
         </div>

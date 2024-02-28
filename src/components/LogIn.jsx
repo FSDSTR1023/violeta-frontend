@@ -65,7 +65,7 @@ function LogIn() {
             <div className="text-center">
               <button
                 onClick={logUser}
-                className={`bg-blue-500 text-white py-2 px-5 rounded-md `}
+                className={`bg-lime-500 text-white py-2 px-5 rounded-md `}
               >
                 Ingresar
               </button>

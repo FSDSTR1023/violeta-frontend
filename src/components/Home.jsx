@@ -1,18 +1,79 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import TrailNestPhoto from '../img/TrailNest-logos_black.png'
 import ImageCarousel from './ImageCarousel';
+import ElementoFila from './RowElement';
 const images = [
   'https://images.unsplash.com/photo-1595586551885-12db6bd260eb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   'https://images.unsplash.com/photo-1682687220199-d0124f48f95b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+  'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 ];
 
+
+
 const Home = () => {
+  const [titulo, setTitulo] = useState('Navarra');
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTitulo((tituloActual) => {
+        switch (tituloActual) {
+          case 'Navarra':
+            return 'Barcelona';
+          case 'Barcelona':
+            return 'Valencia';
+          case 'Valencia':
+            return 'Navarra';
+          default:
+            return 'Navarra';
+        }
+      });
+    }, 3500);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
 <>
 <div className='w-auto'>
   <ImageCarousel images={images} />
+</div>
+<h3 className='px-4 text-3xl	'>Rutas locales favoritas <i><strong>{titulo}</strong></i></h3>
+<br />
+<div className="flex flex-row items-center gap-2 px-4">
+        <ElementoFila
+          imagenSrc="https://images.pexels.com/photos/1271619/pexels-photo-1271619.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          nombre="Monte Naranco:"
+          ciudad="Oviedo, Asturias"
+          rating="4 estrellas"
+          dificultad="Fácil"
+          className="w-1/4 text-left"
+        />
+        <ElementoFila
+          imagenSrc="https://images.pexels.com/photos/1365425/pexels-photo-1365425.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          nombre="Alto del Besori"
+          ciudad="Llombai, Comunidad Valenciana"
+          rating="4,1 estrellas"
+          dificultad="Dificil"
+          className="w-1/4"
+
+        />
+        <ElementoFila
+          imagenSrc="https://images.pexels.com/photos/15529197/pexels-photo-15529197/free-photo-of-gente-caminando-montana-excursionismo.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          nombre="Ruta del pantano de Vallvidriera"
+          ciudad="Barcelona, Cataluña"
+          rating="4,9 estrellas"
+          dificultad="Fácil"
+          className="w-1/4"
+        />
+        <ElementoFila
+          imagenSrc="https://images.pexels.com/photos/238622/pexels-photo-238622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          nombre="Nacedero de Urederra"
+          ciudad="Parque Natural de Urbasa-Andía, Navarra"
+          rating="4,6 estrellas"
+          dificultad="Moderado"
+          className="w-1/4 text-left"
+      />
 </div>
 
       <section className="bg-white pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-[120px]">

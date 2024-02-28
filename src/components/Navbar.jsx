@@ -35,13 +35,13 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-lime-500 text-white p-4 flex justify-between items-center ">
+    <nav className="bg-lime-800 text-white p-4 flex justify-between items-center ">
       <div className="flex items-center ">
         <Link to='/' className="text-xl font-semibold">
           <img src={TrailNestPhoto} alt="Logo" className="w-22 h-10 mr-2 rounded-xl cursor-pointer" />
         </Link>
-        <ul className="flex gap-4 pl-8"> {/* Padding left increased */}
-          {/* <li><Link to="/users" className="hover:text-gray-300">Usuarios</Link></li> */} {/* Link removed */}
+        <ul className="flex gap-4 pl-8">
+          
         </ul>
       </div>
       <ul className="flex gap-4">

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { GetAllRutas, deleteRuta } from '../../api/Rutas';
 import { useSession } from '../contexts/SessionContext';
 import { useNavigate } from 'react-router-dom';
-import deleteCloudinaryImage from './deleteCloudinaryImage';
+import DeleteCloudinaryImage from './DeleteCloudinaryImage';
 
 function OwnRutas() {
   const [rutas, setRutas] = useState([]);
@@ -10,17 +10,28 @@ function OwnRutas() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getProfile();
-    GetAllRutas()
-      .then((response) => {
-        const allRutas = response.data;
-        const filteredRutas = allRutas.filter((ruta) => ruta.creator === profile._id);
-        setRutas(filteredRutas);
+    getProfile()
+      .then((profile) => {
+        if (!profile || !profile._id) {
+          navigate("/login");
+        } else {
+          GetAllRutas()
+            .then((response) => {
+              const allRutas = response.data;
+              const filteredRutas = allRutas.filter((ruta) => ruta.creator === profile._id);
+              setRutas(filteredRutas);
+            })
+            .catch((error) => {
+              console.error('Error fetching rutas:', error);
+            });
+        }
       })
       .catch((error) => {
-        console.error('Error fetching rutas:', error);
+        console.error('Error fetching profile:', error);
       });
-  }, [profile._id]);
+  }, []);
+  
+
 
   
 
@@ -46,7 +57,7 @@ function OwnRutas() {
           console.log('Deleting image ', deleteImage);
           const publicId = deleteImage.split('/').pop().split('.')[0];
           console.log('Public Id is : ' + publicId);
-          await deleteCloudinaryImage(publicId, 'rutas');
+          await DeleteCloudinaryImage(publicId, 'rutas');
         }
   
         await deleteRuta(ruta._id);

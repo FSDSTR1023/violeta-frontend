@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useSession } from '../contexts/SessionContext';
 import { updateUser } from '../../api/Users';
 
 const EditProfile = () => {
   const { getProfile, profile } = useSession();
+  const navigate = useNavigate();
   const [updateSuccess, setUpdateSuccess] = useState(false);
   const [passwordUpdateSuccess, setPasswordUpdateSuccess] = useState(false);
   const [formData, setFormData] = useState({
@@ -16,8 +18,20 @@ const EditProfile = () => {
   const [newPassword, setNewPassword] = useState('');
 
   useEffect(() => {
-    getProfile();
-  }, []);
+    const fetchProfile = async () => {
+      try {
+        await getProfile();
+        if (!profile || !profile._id) {
+          navigate("/login");
+        }
+      } catch (error) {
+        console.error('Error fetching profile:', error);
+        navigate("/login");
+      }
+    };
+
+    fetchProfile();
+  }, [getProfile, navigate, profile]);
 
   useEffect(() => {
     setFormData(profile || {});

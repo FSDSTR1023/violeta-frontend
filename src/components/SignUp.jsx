@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { registerUser } from '../../api/Users';
 import { useNavigate } from 'react-router-dom';
+import backgroundImage from '../img/forest.jpg'
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -33,11 +34,13 @@ const SignUp = () => {
   };
 
   return (
-    <div className="container mx-auto">
-      <h2 className="text-2xl font-bold mb-4 text-center mt-8">Registrarse</h2>
-      <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+    <div className="bg-cover bg-center min-h-screen" style={{backgroundImage: `url(${backgroundImage})`}}>
+    <div className="flex items-center justify-center h-full">
+        <div className="bg-neutral-100 p-10 px-36 rounded-lg shadow-lg my-20">
+          <h2 className="text-2xl font-bold mb-4 text-center">Registrarse</h2>
+          <form onSubmit={handleSubmit} className="max-w-md mx-auto ">
         <div className="mb-4">
-          <label htmlFor="name" className="block mb-1">
+          <label htmlFor="name" className="block mb-1 ">
             Nombre:
           </label>
           <input
@@ -111,6 +114,8 @@ const SignUp = () => {
         </button>
         </div>
       </form>
+    </div>
+    </div>
     </div>
   );
 };

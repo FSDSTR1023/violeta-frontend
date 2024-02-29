@@ -19,6 +19,7 @@ import UpdateRuta from './components/UpdateRuta';
 import RutaProfile from './components/RutaProfile.jsx';
 import { ContactUs } from './components/ContactUs.jsx';
 import { ThankYouPage } from './components/ThankYouPage.jsx';
+import  SobreNosotros  from './components/SobreNosotros.jsx';
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
                 <Route path="/ruta/:rutaId" element={<RutaProfile />}/>
                 <Route path="/contact" element={<ContactUs />}/>
                 <Route path="/thank-you" element={<ThankYouPage />}/>
+                <Route path="/sobrenosotros" element={<SobreNosotros />}/>
 
               </Routes>
             </div>

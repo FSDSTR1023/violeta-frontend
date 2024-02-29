@@ -50,6 +50,7 @@ const Navbar = () => {
         ) : (
           <>
             <li><Link to="/rutas" className="hover:text-gray-300">Rutas</Link></li>
+            <li><Link to="/sobrenosotros" className="hover:text-gray-300">Sobre Nosotros</Link></li>
             <li><Link to="/login" className="hover:text-gray-300">Iniciar sesión</Link></li>
             <li><Link to="/signup" className="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full shadow-md">Registrarse</Link></li>
           </>

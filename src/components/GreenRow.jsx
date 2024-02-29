@@ -20,11 +20,11 @@ export default function GreenRow() {
           </div>
           <div>
              <img src={huella} alt="" className='w-20 h-20 ml-6 mb-2' />
-             <h3 className='text-3xl font-medium pb-2 text-white'>Leave No Trac</h3>
+             <h3 className='text-3xl font-medium pb-2 text-white '>Leave No Trac</h3>
              <p className='text-lg text-white'>TrailNest está comprometido con la sostenibilidad y promueve prácticas sostenibles al aire libre con programas como Leave No Trace.</p>
           </div>
         </div>
-        <button className='font-medium p-2 rounded-full bg-green-400 text-black hover:bg-green-400 m-8 px-6 py-3 hover:shadow-2xl'>Regístrate y cuida del Planeta</button>
+        <button className='font-medium p-2 rounded-full bg-green-400 text-black hover:bg-green-500 m-8 px-6 py-3 hover:shadow-2xl'>Regístrate y cuida del Planeta</button>
 </div>
     );
   }

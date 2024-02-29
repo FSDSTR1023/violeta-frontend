@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import TrailNestPhoto from '../img/TrailNest-logos_black.png'
 import ImageCarousel from './ImageCarousel';
 import ElementoFila from './RowElement';
+import GreenRow from './GreenRow';
 const images = [
   'https://images.unsplash.com/photo-1595586551885-12db6bd260eb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   'https://images.unsplash.com/photo-1682687220199-d0124f48f95b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -120,6 +121,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <div> <GreenRow /> </div>
     </>
   );
 };

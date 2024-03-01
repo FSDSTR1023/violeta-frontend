@@ -14,6 +14,7 @@ const EditProfile = () => {
     nickname: '',
     email: '',
     password: '',
+    profilePicture: null,
   });
   const [newPassword, setNewPassword] = useState('');
 
@@ -61,6 +62,25 @@ const EditProfile = () => {
       setNewPassword('');
     } catch (error) {
       console.error('Error updating password:', error);
+    }
+  };
+//Subir foto al perfil
+  const handleFileChange = (e) => {
+    setFormData({
+      ...formData,
+      profilePicture: e.target.files[0],
+    });
+  };
+
+  const handleSubmitPhoto = async (e) => {
+    e.preventDefault();
+    try {
+      const updatedProfile = new FormData();
+      updatedProfile.append('profilePicture', formData.profilePicture);
+      await updateUser(profile._id, updatedProfile);
+      // Handle success
+    } catch (error) {
+      console.error('Error updating profile picture:', error);
     }
   };
 
@@ -146,7 +166,28 @@ const EditProfile = () => {
       >
         Change Password
       </button>
+      
     </form>
+    <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-md shadow-md">
+      <h2 className="text-xl font-semibold text-center mb-4">Update Profile Picture</h2>
+      <form onSubmit={handleSubmitPhoto}>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">Profile Picture:</label>
+          <input
+            type="file"
+            name="profilePicture"
+            onChange={handleFileChange}
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+          />
+        </div>
+        <button
+          type="submit"
+          className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue"
+        >
+          Upload Picture
+        </button>
+      </form>
+    </div>
     </div>
   );
 };

@@ -20,7 +20,7 @@ const SobreNosotros = () => {
                     </div>
                     
                     <div
-                        className="mt-16 grid divide-x divide-y  divide-green-100 overflow-hidden rounded-3xl border text-gray-600 border-white-700 sm:grid-cols-2 lg:grid-cols-4  lg:divide-y-0 xl:grid-cols-4">
+                        className="mt-10 grid divide-x divide-y  divide-green-100 overflow-hidden rounded-3xl border text-gray-600 border-white-700 sm:grid-cols-2 lg:grid-cols-4  lg:divide-y-0 xl:grid-cols-4">
 
                         <div className="group relative bg-lime-700 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
                             <div className="relative space-y-8 py-12 p-8">

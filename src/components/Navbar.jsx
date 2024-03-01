@@ -19,9 +19,10 @@ const Navbar = () => {
       navigate('/');
     };
 
+    console.log(profile)
     return (
       <div className="relative">
-        <button className='w-36' onClick={() => setIsOpen(!isOpen)}>Perfil</button>
+        <button className='w-36' onClick={() => setIsOpen(!isOpen)}>{profile.nickname}</button>
         {isOpen && (
           <div className="absolute right-0 mt-2 bg-white border rounded-md shadow-md p-2 w-36 z-10 flex flex-col">
             <Link to="/profile" className="text-gray-800 mb-2">Mi cuenta</Link>

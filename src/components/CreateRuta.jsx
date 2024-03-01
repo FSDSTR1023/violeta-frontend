@@ -3,12 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import { createRuta } from '../../api/Rutas';
 import { useSession } from '../contexts/SessionContext';
 import ImageUpload from './UploadImage';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 
 
 const CreateRuta = () => {
   const { getProfile, profile } = useSession();
   const [image, setImage] = useState('');
   const navigate = useNavigate();
+  const [date, setDate] = useState(new Date());
 
   useEffect(() => {
     getProfile();
@@ -165,14 +169,13 @@ const CreateRuta = () => {
         <div className="mb-4">
           <label htmlFor="date" className="block mb-1">
             Date:
-          </label>
-          <input
-            type="date"
-            id="date"
-            name="date"
-            value={rutaData.date.toISOString().split('T')[0]}
-            onChange={handleChange}
-            required
+          </label>          
+          <DatePicker
+            selected={date}
+            dateFormat="dd/MM/yyyy"
+            onChange={
+              (date) => setDate(date)
+            } 
             className="border border-gray-300 rounded-md px-3 py-2 w-full"
           />
         </div>

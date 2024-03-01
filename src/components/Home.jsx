@@ -44,7 +44,7 @@ const Home = () => {
 <br />
 <div className="flex flex-row items-center gap-2 px-4">
         <ElementoFila
-          imagenSrc="https://images.pexels.com/photos/1271619/pexels-photo-1271619.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          imagenSrc="https://res.cloudinary.com/trailnestcloud/image/upload/v1709319593/pexels-photo-1271619_cvuxsu.jpg"
           nombre="Monte Naranco:"
           ciudad="Oviedo, Asturias"
           rating="4 estrellas"
@@ -52,7 +52,7 @@ const Home = () => {
           className="w-1/4 text-left"
         />
         <ElementoFila
-          imagenSrc="https://images.pexels.com/photos/1365425/pexels-photo-1365425.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          imagenSrc="https://res.cloudinary.com/trailnestcloud/image/upload/v1709319821/2_y82k4s.jpg"
           nombre="Alto del Besori"
           ciudad="Llombai, Comunidad Valenciana"
           rating="4,1 estrellas"
@@ -61,7 +61,7 @@ const Home = () => {
 
         />
         <ElementoFila
-          imagenSrc="https://images.pexels.com/photos/15529197/pexels-photo-15529197/free-photo-of-gente-caminando-montana-excursionismo.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          imagenSrc="https://res.cloudinary.com/trailnestcloud/image/upload/v1709319821/3_w20nvp.jpg"
           nombre="Ruta del pantano de Vallvidriera"
           ciudad="Barcelona, Cataluña"
           rating="4,9 estrellas"
@@ -69,7 +69,7 @@ const Home = () => {
           className="w-1/4"
         />
         <ElementoFila
-          imagenSrc="https://images.pexels.com/photos/238622/pexels-photo-238622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          imagenSrc="https://res.cloudinary.com/trailnestcloud/image/upload/v1709319821/4_fia7yp.jpg"
           nombre="Nacedero de Urederra"
           ciudad="Parque Natural de Urbasa-Andía, Navarra"
           rating="4,6 estrellas"

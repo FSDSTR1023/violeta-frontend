@@ -2,12 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { getRutaById, updateRuta } from '../../api/Rutas';
 import { useSession } from '../contexts/SessionContext';
 import { useNavigate, useParams } from 'react-router-dom';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 function UpdateRuta() {
   const { profile } = useSession();
   const { rutaId } = useParams();
-  const [ updateRutaFormData, setUpdateRutaFormData ] = useState({});
   const navigate = useNavigate();
+  const [updateRutaFormData, setUpdateRutaFormData] = useState({
+    date: null,
+  });  
+  const [date, setDate] = useState(updateRutaFormData.date);
 
   useEffect(() => {
     getRutaById(rutaId)
@@ -21,6 +26,7 @@ function UpdateRuta() {
           maxElevation: rutaInfo.maxElevation,
           minElevation: rutaInfo.minElevation,
           description: rutaInfo.description,
+          date: new Date(rutaInfo.date),
           totalTimeSpent: rutaInfo.totalTimeSpent,
           trailType: rutaInfo.trailType,
           imageUrl: rutaInfo.imageUrl,
@@ -30,6 +36,7 @@ function UpdateRuta() {
         console.error('Error fetching rutas:', error);
       });
   }, [rutaId, profile._id]);
+
 
   const handleUpdateChange = (e) => {
     const { name, value } = e.target;
@@ -164,6 +171,38 @@ function UpdateRuta() {
         <div className="mb-4">
           <label htmlFor="totalTimeSpent" className="block mb-1">
             Total Time Spent (in minutes):
+          </label>
+          <input
+            type="number"
+            id="totalTimeSpent"
+            name="totalTimeSpent"
+            value={updateRutaFormData.totalTimeSpent || ''}
+            onChange={handleUpdateChange}
+            required
+            className="border border-gray-300 rounded-md px-3 py-2 w-full"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label htmlFor="date" className="block mb-1">
+            Date
+          </label>
+          <DatePicker
+            selected={date}
+            onChange={(newDate) => {
+              setDate(newDate);
+              setUpdateRutaFormData((prevData) => ({
+                ...prevData,
+                date: newDate,
+              }));
+            }}
+            className="border border-gray-300 rounded-md px-3 py-2 w-full"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label htmlFor="date" className="block mb-1">
+            Total time spent (in minutes)
           </label>
           <input
             type="number"

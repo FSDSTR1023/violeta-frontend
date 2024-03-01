@@ -1,17 +1,15 @@
-import axios from "axios";
+import {Cloudinary} from "@cloudinary/url-gen";
 
 const DeleteCloudinaryImage = async (publicId, folder) => {
   try {
-    const cloudinaryParams = {
+    Cloudinary.config({
       folder: folder,
-      public_id: publicId,
+      cloud_name: import.meta.env.VITE_CLOUDINARY_NAME,
       api_key: import.meta.env.VITE_CLOUDINARY_APIKEY,
       api_secret: import.meta.env.VITE_CLOUDINARY_APISECRET,
-    };
-    console.log(cloudinaryParams);
-    const cloudinaryUrl = `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_NAME}/image/destroy`;
+    });
 
-    const response = await axios.delete(cloudinaryUrl, { params: cloudinaryParams });
+    Cloudinary.uploader.destroy(publicId, function(result) { console.log(result) });
 
     if (response.data.result === 'ok') {
       console.log(`Cloudinary image with public ID ${publicId} deleted`);

@@ -42,7 +42,6 @@ function OwnRutas() {
   
   
   const handleRutaDelete = async (ruta) => {
-    let publicId;
     if (!ruta || !ruta._id) {
       console.error('Invalid ruta or ruta ID');
       return;
@@ -50,14 +49,17 @@ function OwnRutas() {
   
     if (ruta.creator === profile._id) {
       try {
-        for (const deleteImage of ruta.imageUrl) {
-          console.log('Deleting image ', deleteImage);
-          const publicId = deleteImage.split('/').pop().split('.')[0];
+        let publicId;
+        if (ruta.imageUrl && ruta.imageUrl.length > 0) {
+          const deleteImage = ruta.imageUrl[0];
+          publicId = deleteImage.split('/').pop().split('.')[0];
           console.log('Public Id is : ' + publicId);
-          await DeleteCloudinaryImage(publicId, 'rutas');
+        } else {
+          console.error('No image found for the ruta.');
+          return;
         }
   
-        await deleteRuta(ruta._id);
+        await deleteRuta(ruta._id, { publicId });
         setRutas((prevRutas) => prevRutas.filter((u) => u._id !== ruta._id));
         console.log(`Ruta with ID ${ruta._id} deleted`);
       } catch (error) {
@@ -67,6 +69,8 @@ function OwnRutas() {
       console.error('You are not the creator of this route. Deletion not allowed.');
     }
   };
+  
+  
 
   const handleRutaClick = (rutaId) => {
     navigate(`/ruta/${rutaId}`);

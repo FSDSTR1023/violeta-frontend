@@ -27,6 +27,7 @@ const Navbar = () => {
             <li className="mb-2"><Link to="/profile" className="text-gray-800">Mi cuenta</Link></li>
             <li className="mb-2"><Link to="/createruta" className="text-gray-800">Ruta nueva</Link></li>
             <li className="mb-2"><Link to="/myrutas" className="text-gray-800">Mis rutas</Link></li>
+            <li className="mb-2"><Link to="/nivelusuario" className="text-gray-800">Nivel del Usuario</Link></li>
             <li className="mb-2"><button onClick={handleLogout} className="text-gray-800">Cerrar sesión</button></li>
           </div>
         )}

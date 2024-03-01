@@ -187,6 +187,13 @@ const EditProfile = () => {
           Upload Picture
         </button>
       </form>
+      {/* Display current profile picture */}
+      {profile && profile.profilePicture && (
+          <div className="mt-4">
+            <h3 className="text-lg font-semibold mb-2">Current Profile Picture</h3>
+            <img src={profile.profilePicture} alt="Profile" className="w-full rounded-md" />
+          </div>
+        )}
     </div>
     </div>
   );

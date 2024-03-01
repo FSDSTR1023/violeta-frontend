@@ -22,7 +22,7 @@ const NivelUsuario = () => {
                     </div>
                     <div className="flex justify-center items-baseline my-9">
                         <span className="mr-2 text-3xl font-extrabold">Ventajas</span>
-                        <span>/menusales</span>
+                        <span>/mensuales</span>
                     </div>
                     <ul role="list" className="mb-8 space-y-4 text-left">
                         <li className="flex items-center space-x-3">
@@ -87,7 +87,7 @@ const NivelUsuario = () => {
                         </div>
                         <div className="flex justify-center items-baseline my-9">
                             <span className="mr-2 text-3xl font-extrabold">Ventajas</span>
-                            <span>/menusales</span>
+                            <span>/mensuales</span>
                         </div>
                         <ul role="list" className="mb-8 space-y-4 text-left">
                         <li className="flex items-center space-x-3">

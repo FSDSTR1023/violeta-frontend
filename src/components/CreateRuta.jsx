@@ -170,7 +170,7 @@ const CreateRuta = () => {
             type="date"
             id="date"
             name="date"
-            value={rutaData.date.toISOString().split('T')[0]}
+            value={rutaData.date instanceof Date ? rutaData.date.toISOString().split('T')[0] : ''}
             onChange={handleChange}
             required
             className="border border-gray-300 rounded-md px-3 py-2 w-full"

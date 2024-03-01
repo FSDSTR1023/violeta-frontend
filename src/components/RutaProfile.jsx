@@ -3,7 +3,7 @@ import { getRutaById } from '../../api/Rutas';
 import { useParams } from 'react-router-dom';
 
 function RutaProfile() {
-  const { rutaId } = useParams();
+  const { rutaId, rutaUrl } = useParams();
   const [ruta, setRuta] = useState({});
 
   useEffect(() => {
@@ -48,11 +48,12 @@ function RutaProfile() {
               </div>
             </div>
             <div className="flex items-center">
+              {console.log(ruta.imageUrl)}
               <img
                 alt="Mountain Route"
                 className="aspect-video overflow-hidden rounded-xl object-bottom"
                 height="300"
-                src="/placeholder.svg"
+                src={ruta.imageUrl}
                 width="600"
               />
             </div>
@@ -87,69 +88,6 @@ function RutaProfile() {
           </div>
         </div>
       </div>
-      {/* IMAGES
-      
-      <div className="bg-gray-50 py-6 lg:py-12">
-        <div className="container px-4 md:px-6">
-          <div className="grid gap-6 lg:grid-cols-3 lg:gap-12">
-            <div className="flex items-center">
-              <img
-                alt="Photo"
-                className="aspect-video overflow-hidden rounded-xl object-bottom"
-                height="200"
-                src="/placeholder.svg"
-                width="400"
-              />
-            </div>
-            <div className="flex items-center">
-              <img
-                alt="Photo"
-                className="aspect-video overflow-hidden rounded-xl object-bottom"
-                height="200"
-                src="/placeholder.svg"
-                width="400"
-              />
-            </div>
-            <div className="flex items-center">
-              <img
-                alt="Photo"
-                className="aspect-video overflow-hidden rounded-xl object-bottom"
-                height="200"
-                src="/placeholder.svg"
-                width="400"
-              />
-            </div>
-            <div className="flex items-center">
-              <img
-                alt="Photo"
-                className="aspect-video overflow-hidden rounded-xl object-bottom"
-                height="200"
-                src="/placeholder.svg"
-                width="400"
-              />
-            </div>
-            <div className="col-start-2 flex items-center">
-              <img
-                alt="Photo"
-                className="aspect-video overflow-hidden rounded-xl object-bottom"
-                height="200"
-                src="/placeholder.svg"
-                width="400"
-              />
-            </div>
-            <div className="col-start-3 flex items-center">
-              <img
-                alt="Photo"
-                className="aspect-video overflow-hidden rounded-xl object-bottom"
-                height="200"
-                src="/placeholder.svg"
-                width="400"
-              />
-            </div>
-          </div>
-        </div>
-      </div> */}
-
     </>  
   )
 }

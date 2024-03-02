@@ -4,6 +4,9 @@ import axios from 'axios';
 
 const ImageUpload = ({ setImage }) => {
   const [image, setImageLocal] = useState('');
+  import.meta.env.VITE_CLOUDINARY_NAME;
+  import.meta.env.VITE_CLOUDINARY_APIKEY;
+  import.meta.env.VITE_CLOUDINARY_APISECRET;
 
   const uploadImage = async (e) => {
     const files = e.target.files;

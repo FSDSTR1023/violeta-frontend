@@ -183,7 +183,7 @@ const CreateRuta = () => {
 
         <div className="mb-4">
           <label htmlFor="trailType" className="block mb-1">
-            Trail Type:
+            Tipo de Ruta:
           </label>
           <select
             id="trailType"

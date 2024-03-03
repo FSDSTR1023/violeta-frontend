@@ -81,7 +81,7 @@ function LogIn() {
               </button>
               <p className="text-gray-500">o</p>
 
-              <LoginGoogle />
+              {/* <LoginGoogle /> */}
 
             </div>
           </div>

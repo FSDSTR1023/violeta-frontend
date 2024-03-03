@@ -50,6 +50,9 @@ const Navbar = () => {
           <Dropdown />
         ) : (
           <>
+            <li><Link to="/" className="hover:text-gray-300">Inicio</Link></li>
+            <li><Link to="/contact" className="hover:text-gray-300">Contacto</Link></li>
+            <li><Link to="/nivelusuario" className="hover:text-gray-300">Nivel del Usuario</Link></li>
             <li><Link to="/sobrenosotros" className="hover:text-gray-300">Sobre Nosotros</Link></li>
             <li><Link to="/login" className="hover:text-gray-300">Iniciar sesión</Link></li>
             <li><Link to="/signup" className="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full shadow-md">Registrarse</Link></li>

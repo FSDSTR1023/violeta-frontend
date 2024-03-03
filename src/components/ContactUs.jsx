@@ -45,7 +45,7 @@ export const ContactUs = () => {
           id="username"
           name="username"
           type="text"
-          placeholder="Ej: Peter Parker"
+          placeholder="Ej: Carla Delgado"
           required
         />
       </div>
@@ -58,7 +58,7 @@ export const ContactUs = () => {
           id="email"
           name="email"
           type="email"
-          placeholder="Ej: spiderman@gmail.com"
+          placeholder="Ej: carladm@gmail.com"
           required
         />
       </div>

@@ -24,7 +24,8 @@ export default function GreenRow() {
              <p className='text-lg text-white'>TrailNest está comprometido con la sostenibilidad y promueve prácticas sostenibles al aire libre con programas como Leave No Trace.</p>
           </div>
         </div>
-        <button className='font-medium p-2 rounded-full bg-green-400 text-black hover:bg-green-500 m-8 px-6 py-3 hover:shadow-2xl'>Regístrate y cuida del Planeta</button>
+       <a href="https://onetreeplanted.org/"> <button className='font-medium p-2 rounded-full bg-green-400 text-black hover:bg-green-500 m-8 px-6 py-3 hover:shadow-2xl'>Regístrate y cuida del Planeta</button>
+       </a>
 </div>
     );
   }

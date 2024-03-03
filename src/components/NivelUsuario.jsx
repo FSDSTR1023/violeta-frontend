@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 const NivelUsuario = () => {
     return (
         <section className="p-4 md:p-8  ">
@@ -35,7 +35,7 @@ const NivelUsuario = () => {
                     </ul>
                     <div className="flex flex-col justify-between h-full"> {/* Aquí aplicamos la clase para organizar en columna y empujar el botón hacia abajo */}
                         <div></div> {/* Espacio en blanco opcional */}
-                        <button className="w-full font-bold gap-2 shadow uppercase p-2 bg-teal-500 text-white">Empezar</button>
+                        <Link to="/createruta"><button className="w-full font-bold gap-2 shadow uppercase p-2 bg-teal-500 text-white">Empezar</button></Link>
                     </div>
                 </div>
 
@@ -71,7 +71,7 @@ const NivelUsuario = () => {
                             </ul>
                     <div className="flex flex-col justify-between h-full"> {/* Aquí aplicamos la clase para organizar en columna y empujar el botón hacia abajo */}
                         <div></div> {/* Espacio en blanco opcional */}
-                        <button className="w-full font-bold gap-2 shadow uppercase p-2 bg-teal-500 text-white">Empezar</button>
+                        <Link to="/createruta"><button className="w-full font-bold gap-2 shadow uppercase p-2 bg-teal-500 text-white">Empezar</button></Link>
                     </div>
                 </div>
 
@@ -112,7 +112,7 @@ const NivelUsuario = () => {
                             
                             {/* Otros elementos de la lista */}
                         </ul>
-                        <button className="w-full font-bold gap-2 shadow uppercase p-2 bg-teal-500 text-white">Empezar</button>
+                        <Link to="/createruta"><button className="w-full font-bold gap-2 shadow uppercase p-2 bg-teal-500 text-white">Empezar</button></Link>
                     </div>
                 </div>
             </div>

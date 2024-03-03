@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { GetAllRutas, deleteRuta } from '../../api/Rutas';
 import { useSession } from '../contexts/SessionContext';
 import { useNavigate } from 'react-router-dom';
-import DeleteCloudinaryImage from './DeleteCloudinaryImage';
 
 function OwnRutas() {
   const [rutas, setRutas] = useState([]);
@@ -53,7 +52,6 @@ function OwnRutas() {
         if (ruta.imageUrl && ruta.imageUrl.length > 0) {
           const deleteImage = ruta.imageUrl[0];
           publicId = deleteImage.split('/').pop().split('.')[0];
-          console.log('Public Id is : ' + publicId);
         } else {
           console.error('No image found for the ruta.');
           return;

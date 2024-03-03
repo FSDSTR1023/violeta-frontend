@@ -56,12 +56,12 @@ const CreateRuta = () => {
 
   return (
     <div className="container mx-auto">
-      <h2 className="text-2xl font-bold mb-4">Create New Route</h2>
+      <h2 className="text-2xl font-bold mb-4">Crear Nueva Ruta</h2>
       {profile ? (
         <form onSubmit={handleSubmit} className="max-w-md mx-auto">
       <div className="mb-4">
           <label htmlFor="name" className="block mb-1">
-            Route Name:
+            Nombre de la Ruta:
           </label>
           <input
             type="text"
@@ -76,7 +76,7 @@ const CreateRuta = () => {
 
         <div className="mb-4">
           <label htmlFor="location" className="block mb-1">
-            Location:
+            Localización:
           </label>
           <input
             type="text"
@@ -91,7 +91,7 @@ const CreateRuta = () => {
 
         <div className="mb-4">
           <label htmlFor="distance" className="block mb-1">
-            Distance (in km):
+            Distancia (km):
           </label>
           <input
             type="number"
@@ -106,7 +106,7 @@ const CreateRuta = () => {
 
         <div className="mb-4">
           <label htmlFor="difficulty" className="block mb-1">
-            Difficulty:
+            Dificultad:
           </label>
           <select
             id="difficulty"
@@ -124,7 +124,7 @@ const CreateRuta = () => {
 
         <div className="mb-4">
           <label htmlFor="maxElevation" className="block mb-1">
-            Max Elevation:
+            Elevación máxima:
           </label>
           <input
             type="number"
@@ -137,24 +137,10 @@ const CreateRuta = () => {
           />
         </div>
 
-        <div className="mb-4">
-          <label htmlFor="minElevation" className="block mb-1">
-            Min Elevation:
-          </label>
-          <input
-            type="number"
-            id="minElevation"
-            name="minElevation"
-            value={rutaData.minElevation}
-            onChange={handleChange}
-            required
-            className="border border-gray-300 rounded-md px-3 py-2 w-full"
-          />
-        </div>
 
         <div className="mb-4">
           <label htmlFor="description" className="block mb-1">
-            Description:
+            Descripción:
           </label>
           <textarea
             id="description"
@@ -197,7 +183,7 @@ const CreateRuta = () => {
 
         <div className="mb-4">
           <label htmlFor="trailType" className="block mb-1">
-            Trail Type:
+            Tipo de Ruta:
           </label>
           <select
             id="trailType"
@@ -208,21 +194,21 @@ const CreateRuta = () => {
             className="border border-gray-300 rounded-md px-3 py-2 w-full"
           >
             <option value="Loop">Loop</option>
-            <option value="Point-to-Point">Point-to-Point</option>
-            <option value="Out-and-Back">Out-and-Back</option>
+            <option value="Point-to-Point">Punto a punto</option>
+            <option value="Out-and-Back">De ida y vuelta</option>
             <option value="Circuito">Circuito</option>
           </select>
         </div>
 
         <div className="mb-4">
           <label htmlFor="imageUrl" className="block mb-1">
-            Image URL:
+            Añadir Imagen:
           </label>
           <ImageUpload setImage={setImage}/>
         </div>
 
         <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md">
-          Create Route
+          Crear Ruta
         </button>
         </form>
         ) : (

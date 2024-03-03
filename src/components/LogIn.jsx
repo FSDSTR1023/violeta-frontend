@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSession } from '../contexts/SessionContext';
 import backgroundImage from '../img/forest.jpg'
 import { Link } from 'react-router-dom';
-import { LoginGoogle } from "./LoginGoogle";
+// import { LoginGoogle } from "./LoginGoogle";
 
 
 function LogIn() {
@@ -81,7 +81,7 @@ function LogIn() {
               </button>
               <p className="text-gray-500">o</p>
 
-              <LoginGoogle />
+              {/* <LoginGoogle /> */}
 
             </div>
           </div>

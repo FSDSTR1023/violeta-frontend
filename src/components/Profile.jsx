@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSession } from '../contexts/SessionContext';
 import { useNavigate } from 'react-router-dom';
 import { updateUser } from '../../api/Users';
-// import { updateLevel } from '../../api/Users';
+import { updateLevel } from '../../api/Rutas';
 
 
 const EditProfile = () => {
@@ -86,8 +86,19 @@ const EditProfile = () => {
       console.error('Error updating profile picture:', error);
     }
   };
-
-
+  useEffect(() => {
+    async function updateUserLevel() {
+      try {
+        await updateLevel(profile._id); // Llamar a la función para actualizar el nivel del usuario
+        const updatedProfile = await GetUserProfile(profile._id); // Obtener el perfil actualizado
+        setFormData(prevState => ({ ...prevState, level: updatedProfile.level })); // Actualizar el estado con el nivel actualizado
+      } catch (error) {
+        console.error('Error updating user level:', error);
+      }
+    }
+  
+    updateUserLevel(); // Llamar a la función para actualizar el nivel del usuario cuando el componente se monta
+  }, [profile]);
   return (
     <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-md shadow-md">
       <h2 className="text-xl font-semibold text-center mb-4">Update profile</h2>
@@ -140,7 +151,7 @@ const EditProfile = () => {
             type="text"
             name="level"
             value={formData.level}
-            readOnly // Esto evita que el usuario pueda editar este campo
+            readOnly // 
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
           />
         </div><div className="mb-4">

@@ -4,6 +4,7 @@ import TrailNestPhoto from '../img/TrailNest-logos_black.png'
 import ImageCarousel from './ImageCarousel';
 import ElementoFila from './RowElement';
 import GreenRow from './GreenRow';
+import backgroundImage from '../img/forest4k.jpg'
 
 const images = [
   'https://images.unsplash.com/photo-1595586551885-12db6bd260eb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -37,9 +38,16 @@ const Home = () => {
 
   return (
 <>
-<div className='w-auto'>
-  <ImageCarousel images={images} />
-</div>
+
+<div
+        className="bg-cover bg-center text-center overflow-hidden"
+        style={{
+          minHeight: '500px',
+          backgroundImage:`url(${backgroundImage})`
+        }}
+        title="Forest"
+      ></div>
+
 <h3 className='px-4 text-3xl	'>Rutas locales favoritas <i><strong>{titulo}</strong></i></h3>
 <br />
 <div className="flex flex-row items-center gap-2 px-4">

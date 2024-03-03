@@ -4,9 +4,6 @@ import axios from 'axios';
 
 const ImageUpload = ({ setImage }) => {
   const [image, setImageLocal] = useState('');
-  import.meta.env.VITE_CLOUDINARY_NAME;
-  import.meta.env.VITE_CLOUDINARY_APIKEY;
-  import.meta.env.VITE_CLOUDINARY_APISECRET;
 
   const uploadImage = async (e) => {
     const files = e.target.files;
@@ -35,7 +32,7 @@ const ImageUpload = ({ setImage }) => {
     <div>
       <h1>Upload Image</h1>
       <input type="file" onChange={uploadImage} />
-      {image && <img src={image} alt="Uploaded" style={{ width: '300px' }} />}
+      {image && <img src={image} alt="Uploaded" className="max-w-300" />}
     </div>
   );
 };

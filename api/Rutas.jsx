@@ -9,3 +9,6 @@ export const deleteRuta = (rutaId, { publicId }) => {
   }
 export const updateRuta = (rutaId, updateRutaData) => instance.put(`/rutas/${rutaId}`, updateRutaData);
 export const getRutasByUserId = () => instance.get('/users/profile');
+export const updateLevel = (userId, newData) => {
+  return instance.put(`/users/${userId}`, newData);
+};

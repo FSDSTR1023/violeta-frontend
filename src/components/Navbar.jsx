@@ -41,6 +41,7 @@ const Navbar = () => {
         <Link to='/' className="text-xl font-semibold">
           <img src={TrailNestPhoto} alt="Logo" className="w-22 h-10 mr-2 rounded-xl cursor-pointer" />
         </Link>
+        <Link to="/rutas" className="text-white mb-2">Rutas</Link>
         <ul className="flex gap-4 pl-8">
           
         </ul>

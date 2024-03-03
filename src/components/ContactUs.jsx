@@ -32,7 +32,7 @@ export const ContactUs = () => {
   return (
     <form ref={refForm} onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
       <div className="header-contact">
-        <h2 className="text-xl mb-4">Ponte en contacto con TrailNest</h2>
+        <h2 className="text-2xl mb-8 ">Ponte en contacto con TrailNest</h2>
         <p className="text-xs text-gray-600 mb-4">Rellene este formulario</p>
       </div>
 

@@ -56,7 +56,7 @@ const CreateRuta = () => {
 
   return (
     <div className="container mx-auto">
-      <h2 className="text-2xl font-bold mb-4">Crear Nueva Ruta</h2>
+      <h2 className="text-2xl font-bold mb-4  text-center mt-8">Crear una nueva ruta:</h2>
       {profile ? (
         <form onSubmit={handleSubmit} className="max-w-md mx-auto">
       <div className="mb-4">

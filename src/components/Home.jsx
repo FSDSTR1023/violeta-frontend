@@ -58,6 +58,7 @@ const Home = () => {
           rating="4 estrellas"
           dificultad="Fácil"
           className="w-1/4 text-left"
+          to="/contact"
         />
         <ElementoFila
           imagenSrc="https://res.cloudinary.com/trailnestcloud/image/upload/v1709319821/2_y82k4s.jpg"

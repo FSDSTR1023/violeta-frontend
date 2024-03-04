@@ -134,7 +134,7 @@ const EditProfile = () => {
         )}
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Name:</label>
+          <label className="block text-gray-700 text-sm font-bold mb-2">Nombre:</label>
           <input
             type="text"
             name="name"
@@ -145,7 +145,7 @@ const EditProfile = () => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Last name:</label>
+          <label className="block text-gray-700 text-sm font-bold mb-2">Apellido:</label>
           <input
             type="text"
             name="lastName"
@@ -155,7 +155,7 @@ const EditProfile = () => {
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
           />
         </div><div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Nickname:</label>
+          <label className="block text-gray-700 text-sm font-bold mb-2">Nombre de usuario:</label>
           <input
             type="text"
             name="nickname"
@@ -166,7 +166,7 @@ const EditProfile = () => {
           />
           
         </div><div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Level:</label>
+          <label className="block text-gray-700 text-sm font-bold mb-2">Nivel:</label>
           <input
             type="text"
             name="level"
@@ -175,7 +175,7 @@ const EditProfile = () => {
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
           />
         </div><div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+          <label className="block text-gray-700 text-sm font-bold mb-2">Correo electrónico:</label>
           <input
             type="text"
             name="email"
@@ -189,16 +189,16 @@ const EditProfile = () => {
           type="submit"
           className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue"
         >
-          Save Changes
+          Guardar cambios
         </button>
       </form>
 
       <hr className="my-6" />
 
-      <h2 className="text-xl font-semibold text-center mb-4">Change Password</h2>
+      <h2 className="text-xl font-semibold text-center mb-4">Cambiar contraseña</h2>
       <form onSubmit={handlePasswordUpdate}>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">New Password:</label>
+          <label className="block text-gray-700 text-sm font-bold mb-2">Nueva contraseña:</label>
           <input
             type="password"
             name="newPassword"
@@ -211,13 +211,13 @@ const EditProfile = () => {
           type="submit"
           className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue"
         >
-          Change Password
+          Cambiar contraseña
         </button>        
       </form>
 
       <hr className="my-6" />
 
-      <h2 className="text-xl font-semibold text-center mb-4">Update Profile Picture</h2>
+      <h2 className="text-xl font-semibold text-center mb-4">Actualizar foto de perfil</h2>
       {updateSuccess && (
         <div className="bg-green-200 text-green-800 p-2 mb-4 rounded-md">
           Profile picture successfully updated! Please <strong>re-login</strong> for the changes to take effect.
@@ -230,11 +230,11 @@ const EditProfile = () => {
         className="bg-blue-500 text-white my-2 py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue"
         onClick={handleOverwriteAvatar}
       >
-        Change Picture
+        Cambiar foto de perfil
       </button>
       {profile && profile.avatar && (
           <div className="mt-4">
-            <h3 className="text-lg font-semibold mb-2">Current Profile Picture</h3>
+            <h3 className="text-lg font-semibold mb-2">Foto de perfil actual:</h3>
             <img src={profile.avatar} alt="Profile" className="w-full rounded-md" />
           </div>
         )}

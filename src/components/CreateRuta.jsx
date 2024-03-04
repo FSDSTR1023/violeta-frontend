@@ -209,7 +209,7 @@ const CreateRuta = () => {
           <label htmlFor="imageUrl" className="block mb-1">
             Añadir Imagen:
           </label>
-          <ImageUpload setImage={setImage} />
+          <ImageUpload setImage={setImage} folder="rutas"/>
           {errorMessage && <p className="text-red-500">{errorMessage}</p>}
         </div>
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 
-const ImageUpload = ({ setImage }) => {
+const ImageUpload = ({ setImage, folder }) => {
   const [image, setImageLocal] = useState('');
 
   const uploadImage = async (e) => {
@@ -10,7 +10,7 @@ const ImageUpload = ({ setImage }) => {
     const data = new FormData();
     data.append('file', files[0]);
     data.append('upload_preset', import.meta.env.VITE_CLOUDINARY_UNSIGNED_PRESET);
-    data.append('folder', 'rutas');
+    data.append('folder', folder);
 
     try {
       const uploadRes = await axios.post(

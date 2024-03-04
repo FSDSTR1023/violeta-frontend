@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-const ElementoFila = ({ imagenSrc, nombre, ciudad, rating, kilometros, dificultad }) => {
+const ElementoFila = ({ imagenSrc, nombre, ciudad, rating, kilometros, dificultad, link }) => {
   return (
     <div className="flex flex-col items-center gap-2">
       <div className="flex flex-col items-start justify-start px-1">
         <div className="w-full rounded-lg overflow-hidden mb-2">
-        <Link to="/signup">
+        <Link to={link}>
             <img src={imagenSrc} alt={nombre}  className="object-cover transform hover:scale-110 transition-transform duration-200 ease-in-out" />
         </Link>        </div>
         <div className="flex flex-col">

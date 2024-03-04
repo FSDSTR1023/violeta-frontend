@@ -15,6 +15,7 @@ const images = [
 
 const Home = () => {
   const [titulo, setTitulo] = useState('Navarra');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -54,6 +55,7 @@ const Home = () => {
           rating="4 estrellas"
           dificultad="Fácil"
           className="w-1/4 text-left"
+          link="http://localhost:5173/ruta/65e35c834274719a38351864"
         />
         <ElementoFila
           imagenSrc="https://res.cloudinary.com/trailnestcloud/image/upload/v1709319821/2_y82k4s.jpg"
@@ -62,6 +64,7 @@ const Home = () => {
           rating="4,1 estrellas"
           dificultad="Dificil"
           className="w-1/4"
+          link="http://localhost:5173/ruta/65e5f59d102abd7a92e9fe7b"
 
         />
         <ElementoFila
@@ -71,6 +74,8 @@ const Home = () => {
           rating="4,9 estrellas"
           dificultad="Fácil"
           className="w-1/4"
+          link="http://localhost:5173/ruta/65e35c834274719a38351864"
+
         />
         <ElementoFila
           imagenSrc="https://res.cloudinary.com/trailnestcloud/image/upload/v1709319821/4_fia7yp.jpg"
@@ -79,6 +84,8 @@ const Home = () => {
           rating="4,6 estrellas"
           dificultad="Moderado"
           className="w-1/4 text-left"
+          link="http://localhost:5173/ruta/65e35c834274719a38351864"
+
       />
 </div>
 

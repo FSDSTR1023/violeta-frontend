@@ -94,8 +94,8 @@ function OwnRutas() {
               </p>
             </div>
             <div className="flex justify-between">
-              <button onClick={() => handleRutaUpdate(ruta)}>Update</button>
-              <button onClick={() => handleRutaDelete(ruta)}>Delete</button>
+              <button onClick={() => handleRutaUpdate(ruta)}>Editar</button>
+              <button onClick={() => handleRutaDelete(ruta)}>Borrar</button>
             </div>
           </div>
         ))}

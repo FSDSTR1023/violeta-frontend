@@ -21,7 +21,7 @@ import { ContactUs } from './components/ContactUs.jsx';
 import { ThankYouPage } from './components/ThankYouPage.jsx';
 import  SobreNosotros  from './components/SobreNosotros.jsx';
 import  NivelUsuario  from './components/NivelUsuario.jsx';
-
+import { Forgot } from './components/OlvideContraseña.jsx';
 
 function App() {
 
@@ -52,6 +52,7 @@ function App() {
                 <Route path="/thank-you" element={<ThankYouPage />}/>
                 <Route path="/sobrenosotros" element={<SobreNosotros />}/>
                 <Route path="/nivelusuario" element={<NivelUsuario />}/>
+                <Route path="/olvide-contraseña" element={<Forgot />}/>
 
               </Routes>
             </div>

@@ -13,6 +13,8 @@ const CreateRuta = () => {
   const [image, setImage] = useState('');
   const navigate = useNavigate();
   const [date, setDate] = useState(new Date());
+  const [errorMessage, setErrorMessage] = useState('');
+
 
   useEffect(() => {
     getProfile();
@@ -42,21 +44,24 @@ const CreateRuta = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!image) {
+      setErrorMessage('Please upload an image.');
+      return;
+    }
 
     try {
       console.log('Image before submission:', image);
       const response = await createRuta({ ...rutaData, imageUrl: image });
       console.log('Route created successfully:', response.data);
       navigate('/rutas');
-
     } catch (error) {
       console.error('Error creating route:', error);
     }
-  };
+  }
 
   return (
     <div className="container mx-auto">
-      <h2 className="text-2xl font-bold mb-4">Crear Nueva Ruta</h2>
+      <h2 className="text-2xl font-bold mb-4  text-center mt-8">Crear una nueva ruta:</h2>
       {profile ? (
         <form onSubmit={handleSubmit} className="max-w-md mx-auto">
       <div className="mb-4">
@@ -204,7 +209,8 @@ const CreateRuta = () => {
           <label htmlFor="imageUrl" className="block mb-1">
             Añadir Imagen:
           </label>
-          <ImageUpload setImage={setImage}/>
+          <ImageUpload setImage={setImage} folder="rutas"/>
+          {errorMessage && <p className="text-red-500">{errorMessage}</p>}
         </div>
 
         <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md">

@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { registerUser } from '../../api/Users';
 import { useNavigate } from 'react-router-dom';
 import backgroundImage from '../img/forest.jpg'
+import ImageUpload from './UploadImage';
 
 const SignUp = () => {
   const navigate = useNavigate();
+  const [image, setImage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     lastName: '',
@@ -22,8 +25,12 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    if (!image) {
+      setErrorMessage('Please upload an image.');
+      return;
+    }
     try {
+      console.log('Image before submission:', image);
       const response = await registerUser(formData);
       console.log('User registered successfully:', response.data);
       navigate('/');
@@ -107,6 +114,13 @@ const SignUp = () => {
             required
             className="border border-gray-300 rounded-md px-3 py-2 w-full"
           />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="imageUrl" className="block mb-1">
+            Añadir Imagen:
+          </label>
+          <ImageUpload setImage={setImage} folder="users" className="w-76 rounded-xl"/>
+          {errorMessage && <p className="text-red-500">{errorMessage}</p>}
         </div>
         <div className="container mx-auto text-center">
         <button type="submit" className="bg-lime-500 text-white py-2 px-4 rounded-md">

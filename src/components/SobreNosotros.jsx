@@ -1,6 +1,7 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
 import BlogNosotros from './BlogNosotros.jsx';
-import LogoHoja from '../img/hoja.jpg';
+
 const SobreNosotros = () => {
 
     return (

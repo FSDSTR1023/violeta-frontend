@@ -2,18 +2,15 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 
-const ImageUpload = ({ setImage }) => {
+const ImageUpload = ({ setImage, folder }) => {
   const [image, setImageLocal] = useState('');
-  import.meta.env.VITE_CLOUDINARY_NAME;
-  import.meta.env.VITE_CLOUDINARY_APIKEY;
-  import.meta.env.VITE_CLOUDINARY_APISECRET;
 
   const uploadImage = async (e) => {
     const files = e.target.files;
     const data = new FormData();
     data.append('file', files[0]);
     data.append('upload_preset', import.meta.env.VITE_CLOUDINARY_UNSIGNED_PRESET);
-    data.append('folder', 'rutas');
+    data.append('folder', folder);
 
     try {
       const uploadRes = await axios.post(
@@ -35,7 +32,7 @@ const ImageUpload = ({ setImage }) => {
     <div>
       <h1>Upload Image</h1>
       <input type="file" onChange={uploadImage} />
-      {image && <img src={image} alt="Uploaded" style={{ width: '300px' }} />}
+      {image && <img src={image} alt="Uploaded" className="max-w-300" />}
     </div>
   );
 };

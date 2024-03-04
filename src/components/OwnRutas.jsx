@@ -5,13 +5,15 @@ import { useNavigate } from 'react-router-dom';
 
 function OwnRutas() {
   const [rutas, setRutas] = useState([]);
-  const { getProfile, profile } = useSession();
+  const { getProfile, profile, isLoading } = useSession();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!profile || !profile._id) {
       console.error('Invalid profile or profile ID');
-      navigate('/login');
+      if (profile && !isLoading) {
+        navigate('/login');
+      }
       return;
     }
     GetAllRutas()
@@ -23,13 +25,8 @@ function OwnRutas() {
       .catch((error) => {
         console.error('Error fetching rutas:', error);
       });
-  }, [profile]);
-
-  if (!profile || !profile._id) {
-    return <div>Loading...</div>;
-  }
-
-  
+  }, [profile, isLoading]);
+ 
 
   const handleRutaUpdate = (ruta) => {
     if (ruta.creator === profile._id) {
@@ -76,19 +73,17 @@ function OwnRutas() {
 
   return (
     <div className="container mx-auto">
-      <h2 className="text-2xl font-bold mb-4  text-center mt-8">Mis rutas:</h2>
-      <div className="flex flex-wrap space-x-4 gap-2">
+      <h2 className="text-2xl font-bold mb-4 text-center mt-8">Mis rutas:</h2>
+      <div className="flex flex-wrap gap-2">
         {rutas.map((ruta) => (
-          <div key={ruta._id} className="bg-slate-50 rounded-lg shadow-md p-4 w-72">
-            <div className="flex flex-col mb-4">
+          <div key={ruta._id} className="bg-slate-50 rounded-lg shadow-md p-4 w-72 flex flex-col justify-between">
+            <div className="mb-4">
               <p className="text-lg font-semibold mb-2 gap-1">
-                <span className="text-gray-400 capitalize">Name: </span>
-                <button className="underlined" onClick={() => handleRutaClick(ruta._id)}>
+                <button className="underlined text-left" onClick={() => handleRutaClick(ruta._id)}>
                   {ruta.name}
                 </button>
               </p>
               <p className="text-lg font-semibold mb-2 gap-1">
-                <span className="text-gray-400 capitalize">Date: </span>
                 <span className="underlined">
                   {new Intl.DateTimeFormat('es-ES', {
                     day: 'numeric',

@@ -47,14 +47,12 @@ function RutaProfile() {
                 </button>
               </div>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center h-80">
               {console.log(ruta.imageUrl)}
               <img
                 alt="Mountain Route"
-                className="aspect-video overflow-hidden rounded-xl object-bottom"
-                height="300"
+                className="aspect-video overflow-hidden rounded-xl object-bottom h-max"
                 src={ruta.imageUrl}
-                width="600"
               />
             </div>
           </div>

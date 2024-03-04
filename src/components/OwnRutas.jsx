@@ -11,7 +11,7 @@ function OwnRutas() {
   useEffect(() => {
     if (!profile || !profile._id) {
       console.error('Invalid profile or profile ID');
-      if (profile && !isLoading) {
+      if (!isLoading) {
         navigate('/login');
       }
       return;

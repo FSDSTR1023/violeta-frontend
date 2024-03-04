@@ -28,12 +28,11 @@ const EditProfile = () => {
   useEffect(() => {
     if (!profile || !profile._id) {
       console.error('Invalid profile or profile ID');
-      if (profile && !isLoading) {
+      if (!isLoading) {
         navigate('/login');
       }
-      return;
     }
-  }, [profile, isLoading]);
+  }, [profile, isLoading]); 
 
   useEffect(() => {
     setFormData(profile || {});
@@ -120,11 +119,6 @@ const EditProfile = () => {
             Profile successfully updated!
           </div>
         )}
-        {passwordUpdateSuccess && (
-          <div className="bg-green-200 text-green-800 p-2 mb-4 rounded-md">
-            Password successfully updated! Please <strong>re-login</strong> for the changes to take effect.
-          </div>
-        )}
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Nombre:</label>
@@ -189,6 +183,11 @@ const EditProfile = () => {
       <hr className="my-6" />
 
       <h2 className="text-xl font-semibold text-center mb-4">Cambiar contraseña</h2>
+      {passwordUpdateSuccess && (
+          <div className="bg-green-200 text-green-800 p-2 mb-4 rounded-md">
+            Password successfully updated! Please <strong>re-login</strong> for the changes to take effect.
+          </div>
+        )}
       <form onSubmit={handlePasswordUpdate}>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Nueva contraseña:</label>

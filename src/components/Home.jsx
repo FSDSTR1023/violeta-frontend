@@ -8,7 +8,7 @@ import GreenRow from './GreenRow';
 const images = [
   'https://images.unsplash.com/photo-1595586551885-12db6bd260eb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   'https://images.unsplash.com/photo-1682687220199-d0124f48f95b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  'https://res.cloudinary.com/trailnestcloud/image/upload/v1709563941/pexels-james-wheeler-1564655_ru2eo1.jpg',
 ];
 
 
@@ -37,15 +37,19 @@ const Home = () => {
 
   return (
 <>
-<div className='w-auto'>
-  <ImageCarousel images={images} />
+<div className="flex items-center justify-center w-full h-screen bg-cover bg-center bg-fixed" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')` }}>
+    <div className='text-center text-slate-950'>
+      <h2 className='text-5xl font-bold text-shadow-lg '>Decide tu nueva aventura</h2>
+      <input className="m-5 w-3/4 h-8 shadow-xl rounded-xl px-4 text-left" type="text" placeholder='🔎 Descúbrela aquí...'/> <br />
+      <Link to="/rutas" className='text-xl text-shadow-xl font-medium	'>Explorar ahora</Link>
+    </div>
 </div>
 <h3 className='px-4 text-3xl	'>Rutas locales favoritas <i><strong>{titulo}</strong></i></h3>
 <br />
 <div className="flex flex-row items-center gap-2 px-4">
         <ElementoFila
           imagenSrc="https://res.cloudinary.com/trailnestcloud/image/upload/v1709319593/pexels-photo-1271619_cvuxsu.jpg"
-          nombre="Monte Naranco:"
+          nombre="Monte Naranco"
           ciudad="Oviedo, Asturias"
           rating="4 estrellas"
           dificultad="Fácil"

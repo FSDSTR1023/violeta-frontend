@@ -70,7 +70,7 @@ function LogIn() {
                 className="border border-gray-300 rounded-md px-3 py-2 w-full"
                 placeholder="Contraseña"
               />
-              <p className="text-left text-gray-500 text-xs pt-2">¿Has olvidado tu contraseña?</p>
+              <Link to="/olvide-contraseña"><p className="text-left text-gray-500 text-xs pt-2">¿Has olvidado tu contraseña?</p> </Link>
             </div>
             <div className="text-center">
               <button
@@ -79,10 +79,6 @@ function LogIn() {
               >
                 Iniciar sesión
               </button>
-              <p className="text-gray-500">o</p>
-
-              {/* <LoginGoogle /> */}
-
             </div>
           </div>
         </div>

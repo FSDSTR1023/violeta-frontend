@@ -9,16 +9,11 @@ import "react-datepicker/dist/react-datepicker.css";
 
 
 const CreateRuta = () => {
-  const { getProfile, profile } = useSession();
+  const { getProfile, profile, isLoading } = useSession();
   const [image, setImage] = useState('');
   const navigate = useNavigate();
   const [date, setDate] = useState(new Date());
   const [errorMessage, setErrorMessage] = useState('');
-
-
-  useEffect(() => {
-    getProfile();
-  }, []);
 
   const [rutaData, setRutaData] = useState({
     name: '',
@@ -32,8 +27,23 @@ const CreateRuta = () => {
     totalTimeSpent: 0,
     trailType: 'Loop',
     imageUrl: '',
-    creator: profile._id
+    creator: profile ? profile._id : ''
   });
+
+  useEffect(() => {
+    if (!profile || !profile._id) {
+      console.error('Invalid profile or profile ID');
+      if (profile && !isLoading) {
+        navigate('/login');
+      }
+      return;
+    }
+    setRutaData(prevState => ({
+      ...prevState,
+      creator: profile._id
+    }));
+  }, [profile, isLoading]);
+
 
   const handleChange = (e) => {
     setRutaData({

@@ -12,7 +12,8 @@ const EditProfile = () => {
   const navigate = useNavigate();
   const [updateSuccess, setUpdateSuccess] = useState(false);
   const [newPassword, setNewPassword] = useState('');
-  const [passwordUpdateSuccess, setPasswordUpdateSuccess] = useState(false);  
+  const [passwordUpdateSuccess, setPasswordUpdateSuccess] = useState(false); 
+  const [updateSuccessPicture, setUpdateSuccessPicture] = useState(false); 
   const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
     name: '',
@@ -73,17 +74,9 @@ const EditProfile = () => {
     }
   };
 
-  const handleAvatarChange = (newAvatar) => {
-    console.log('Nuevo avatar', newAvatar);
-    setFormData({
-      ...formData,
-      avatar: newAvatar,
-    });
-  };
-
   const handleOverwriteAvatar = async (e) => {
     e.preventDefault();
-    console.log('Image before check:', image); // Add this line
+    console.log('Image before check:', image); 
     if (!image) {
       setErrorMessage('Please upload an image.');
       return;
@@ -96,7 +89,7 @@ const EditProfile = () => {
         ...formData,
         avatar: updatedProfile.avatar,
       });
-      setUpdateSuccess(true); 
+      setUpdateSuccessPicture(true); 
     } catch (error) {
       console.error('Error updating avatar:', error);
     }
@@ -218,7 +211,7 @@ const EditProfile = () => {
       <hr className="my-6" />
 
       <h2 className="text-xl font-semibold text-center mb-4">Actualizar foto de perfil</h2>
-      {updateSuccess && (
+      {updateSuccessPicture && (
         <div className="bg-green-200 text-green-800 p-2 mb-4 rounded-md">
           Profile picture successfully updated! Please <strong>re-login</strong> for the changes to take effect.
         </div>

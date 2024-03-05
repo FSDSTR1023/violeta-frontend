@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useSession } from '../contexts/SessionContext';
 import { useNavigate } from 'react-router-dom';
 import { updateUser } from '../../api/Users';
-import { updateLevel } from '../../api/Rutas';
 import ImageUpload from './UploadImage'
 
 
@@ -46,7 +45,12 @@ const EditProfile = () => {
       [e.target.name]: e.target.value,
     });
   };
-
+  useEffect(() => {
+    if (updateSuccess) {
+      // lo he echo para actualizar el nivel del usuario 
+      getProfile();
+    }
+  }, [updateSuccess, getProfile]);
   const handleInputClick = () => {
     setUpdateSuccess(false);
     setPasswordUpdateSuccess(false);
@@ -94,23 +98,6 @@ const EditProfile = () => {
     }
   };
   
-  
-
-  
-  // useEffect(() => {
-  //   async function updateUserLevel() {
-  //     try {
-  //       await updateLevel(profile._id); // Llamar a la función para actualizar el nivel del usuario
-  //       const updatedProfile = await GetUserProfile(profile._id); // Obtener el perfil actualizado
-  //       setFormData(prevState => ({ ...prevState, level: updatedProfile.level })); // Actualizar el estado con el nivel actualizado
-  //     } catch (error) {
-  //       console.error('Error updating user level:', error);
-  //     }
-  //   }
-  
-  //   updateUserLevel(); // Llamar a la función para actualizar el nivel del usuario cuando el componente se monta
-  // }, [profile]);
-
   return (
     <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-md shadow-md">
       <h2 className="text-xl font-semibold text-center mb-4">Update profile</h2>

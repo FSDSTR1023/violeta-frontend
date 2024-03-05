@@ -30,7 +30,9 @@ const RutaPorTiempo = () => {
 
   return (
     <div className="container mx-auto">
-      <h2 className="text-2xl font-bold mb-4">Ruta por Tiempo:</h2>
+      <h2 className="text-3xl font-bold mb-4 text-center m-10">Ruta por Tiempo:</h2>
+      <p className='font-bold text-center my-5'>¿Tienes poco tiempo pero muchas ganas de explorar? Nuestro buscador de rutas por tiempo está diseñado para satisfacer tus necesidades de aventura en cualquier horario. 
+      </p>
       <div className="mb-4">
         <label htmlFor="tiempoDeseado" className="block mb-1">
           Tiempo máximo deseado (minutos):

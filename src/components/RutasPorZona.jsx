@@ -34,7 +34,8 @@ function ListAllRutas() {
 
   return (
     <div className="container mx-auto">
-      <h2 className="text-2xl font-bold mb-4 ">Rutas:</h2>
+      <h2 className="text-2xl font-bold my-10 text-center">Rutas por Zona</h2>
+      <p className='font-bold text-center my-5'>Descubre las maravillas de tu entorno con nuestra función de búsqueda de rutas por zonas. Explora paisajes pintorescos, senderos naturales y puntos de interés cercanos a ti. Desde las majestuosas montañas hasta las serenas costas, encuentra la ruta perfecta para tu próxima aventura al aire libre. </p>
       {/* Campo de entrada para buscar por ubicación */}
       <div className="mb-4">
         <label htmlFor="location" className="block mb-1">Buscar por zona:</label>

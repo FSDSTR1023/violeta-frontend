@@ -34,10 +34,10 @@ function ListAllRutas() {
 
   return (
     <div className="container mx-auto">
-      <h2 className="text-2xl font-bold mb-4">Rutas:</h2>
+      <h2 className="text-2xl font-bold mb-4 ">Rutas:</h2>
       {/* Campo de entrada para buscar por ubicación */}
       <div className="mb-4">
-        <label htmlFor="location" className="block mb-1">Search by Location:</label>
+        <label htmlFor="location" className="block mb-1">Buscar por zona:</label>
         <input
           type="text"
           id="location"

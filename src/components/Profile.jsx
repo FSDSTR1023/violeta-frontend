@@ -97,7 +97,50 @@ const EditProfile = () => {
       console.error('Error updating avatar:', error);
     }
   };
-  
+//level 
+const calculateProgress = () => {
+  if (!profile) {
+    return ''; // Si no hay perfil, no se puede calcular el progreso
+  }
+
+  // Definir los requisitos para cada nivel
+  const levelRequirements = {
+    Principiante: 6,
+    Avanzado: 15,
+    Experto: Infinity, // No hay requisitos para llegar a este nivel
+  };
+
+  // Obtener el número de rutas completadas y el nivel actual del perfil
+  const { routeCount, level } = profile;
+
+  // Verificar si el nivel actual es conocido
+  if (!levelRequirements.hasOwnProperty(level)) {
+    return 'Nivel desconocido'; // Manejar niveles no reconocidos
+  }
+
+  // Obtener el requisito de ruta para el próximo nivel
+  const nextLevelRequirement = levelRequirements[level];
+
+  // Calcular la cantidad de rutas restantes para el próximo nivel
+  const remainingRoutes = Math.max(0, nextLevelRequirement - routeCount);
+
+  // Construir el mensaje de progreso
+  return `Faltan ${remainingRoutes} rutas para subir de nivel a ${getNextLevel(level)}`;
+};
+
+// Función para obtener el próximo nivel
+const getNextLevel = (currentLevel) => {
+  switch (currentLevel) {
+    case 'Principiante':
+      return 'Avanzado';
+    case 'Avanzado':
+      return 'Experto';
+    case 'Experto':
+      return 'Experto'; // No hay un próximo nivel después de Experto
+    default:
+      return 'Desconocido';
+  }
+};
   return (
     <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-md shadow-md">
       <h2 className="text-xl font-semibold text-center mb-4">Update profile</h2>
@@ -140,15 +183,17 @@ const EditProfile = () => {
           />
           
         </div><div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Nivel:</label>
-          <input
-            type="text"
-            name="level"
-            value={formData.level}
-            readOnly // 
-            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-          />
-        </div><div className="mb-4">
+  <label className="block text-gray-700 text-sm font-bold mb-2">Nivel:</label>
+  <input
+    type="text"
+    name="level"
+    value={formData.level}
+    readOnly 
+    className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+  />
+  <div className="mt-2 text-sm text-gray-600">{calculateProgress()}</div>
+</div>
+<div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Correo electrónico:</label>
           <input
             type="text"

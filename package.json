@@ -16,6 +16,7 @@
     "@cloudinary/react": "^1.13.0",
     "@cloudinary/url-gen": "^1.18.0",
     "@emailjs/browser": "^4.1.0",
+    "@heroicons/react": "^2.1.1",
     "@testing-library/react": "^14.1.2",
     "axios": "^1.6.5",
     "dotenv": "^16.4.1",

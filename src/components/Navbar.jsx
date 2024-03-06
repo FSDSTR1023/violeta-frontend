@@ -46,7 +46,7 @@ const Navbar = () => {
           
         </ul>
       </div>
-      <ul className="flex gap-4">
+      <ul className="flex gap-8">
         {profile ? (
           <Dropdown />
         ) : (

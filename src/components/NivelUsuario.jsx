@@ -31,10 +31,10 @@ const NivelUsuario = () => {
                             </svg>
                             <span className="text-base-content/80">Acceso básico a todas las funcionalidades de la plataforma.</span>
                         </li>
-                        {/* Otros elementos de la lista */}
+                        
                     </ul>
-                    <div className="flex flex-col justify-between h-full"> {/* Aquí aplicamos la clase para organizar en columna y empujar el botón hacia abajo */}
-                        <div></div> {/* Espacio en blanco opcional */}
+                    <div className="flex flex-col justify-between h-full"> 
+                        <div></div> 
                         <Link to="/createruta"><button className="w-full font-bold gap-2 shadow uppercase p-2 bg-teal-500 text-white">Empezar</button></Link>
                     </div>
                 </div>
@@ -67,10 +67,9 @@ const NivelUsuario = () => {
                                 </svg>
                                 <span className="text-base-content/80">Acceso a funciones premium como filtrado avanzado de rutas y prioridad en la visualización de rutas.</span>
                             </li>
-                            {/* Otros elementos de la lista */}
+                            
                             </ul>
-                    <div className="flex flex-col justify-between h-full"> {/* Aquí aplicamos la clase para organizar en columna y empujar el botón hacia abajo */}
-                        <div></div> {/* Espacio en blanco opcional */}
+                    <div className="flex flex-col justify-between h-full"> 
                         <Link to="/createruta"><button className="w-full font-bold gap-2 shadow uppercase p-2 bg-teal-500 text-white">Empezar</button></Link>
                     </div>
                 </div>
@@ -110,7 +109,7 @@ const NivelUsuario = () => {
                             </li>
 
                             
-                            {/* Otros elementos de la lista */}
+                           
                         </ul>
                         <Link to="/createruta"><button className="w-full font-bold gap-2 shadow uppercase p-2 bg-teal-500 text-white">Empezar</button></Link>
                     </div>

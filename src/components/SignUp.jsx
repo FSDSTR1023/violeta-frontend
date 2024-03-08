@@ -14,6 +14,7 @@ const SignUp = () => {
     nickname: '',
     email: '',
     password: '',
+    avatar: ''
   });
 
   const handleChange = (e) => {

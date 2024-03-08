@@ -10,7 +10,7 @@ const RutaPorTiempo = () => {
     GetAllRutas()
       .then(rutas => {
         setRutas(rutas.data);
-        setRutasFiltradas(rutas.data); // Inicialmente todas las rutas disponibles
+        setRutasFiltradas(rutas.data); 
       })
       .catch(error => {
         console.error('Error fetching rutas:', error);

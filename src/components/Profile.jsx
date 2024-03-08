@@ -101,35 +101,33 @@ const EditProfile = () => {
 //level 
 const calculateProgress = () => {
   if (!profile) {
-    return ''; // Si no hay perfil, no se puede calcular el progreso
+    return ''; 
   }
 
-  // Definir los requisitos para cada nivel
+
   const levelRequirements = {
     Principiante: 6,
     Avanzado: 15,
-    Experto: Infinity, // No hay requisitos para llegar a este nivel
+    Experto: Infinity, 
   };
 
-  // Obtener el número de rutas completadas y el nivel actual del perfil
+  
   const { routeCount, level } = profile;
 
-  // Verificar si el nivel actual es conocido
+
   if (!levelRequirements.hasOwnProperty(level)) {
-    return 'Nivel desconocido'; // Manejar niveles no reconocidos
+    return 'Nivel desconocido';
   }
 
-  // Obtener el requisito de ruta para el próximo nivel
+
   const nextLevelRequirement = levelRequirements[level];
 
-  // Calcular la cantidad de rutas restantes para el próximo nivel
   const remainingRoutes = Math.max(0, nextLevelRequirement - routeCount);
 
-  // Construir el mensaje de progreso
   return `Faltan ${remainingRoutes} rutas para subir de nivel a ${getNextLevel(level)}`;
 };
 
-// Función para obtener el próximo nivel
+
 const getNextLevel = (currentLevel) => {
   switch (currentLevel) {
     case 'Principiante':
@@ -137,7 +135,7 @@ const getNextLevel = (currentLevel) => {
     case 'Avanzado':
       return 'Experto';
     case 'Experto':
-      return 'Experto'; // No hay un próximo nivel después de Experto
+      return 'Experto'; 
     default:
       return 'Desconocido';
   }
@@ -192,7 +190,7 @@ const getNextLevel = (currentLevel) => {
     readOnly 
     className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
   />
-  <div className="mt-2 text-sm text-gray-600">{calculateProgress()}</div>
+  
 </div>
 <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Correo electrónico:</label>

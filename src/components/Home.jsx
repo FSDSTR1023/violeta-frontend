@@ -55,7 +55,7 @@ const Home = () => {
           rating="4 estrellas"
           dificultad="Fácil"
           className="w-1/4 text-left"
-          link="http://localhost:5173/ruta/65e35c834274719a38351864"
+          link={'/ruta/' + rutaId}
         />
         <ElementoFila
           imagenSrc="https://res.cloudinary.com/trailnestcloud/image/upload/v1709319821/2_y82k4s.jpg"

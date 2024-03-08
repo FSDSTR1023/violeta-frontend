@@ -17,7 +17,7 @@ const BlogNosotros = () => {
         <div className="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
           <div className="bg-white relative top-0 -mt-32 p-5 sm:p-10">
             <h1 className="text-gray-900 font-bold text-3xl mb-2">
-            Quiénes Somos?
+            ¿Quiénes Somos?
             </h1>
             
             <p className="text-base leading-8 my-5">

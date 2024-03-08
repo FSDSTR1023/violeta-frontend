@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSession } from '../contexts/SessionContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { updateUser } from '../../api/Users';
 import ImageUpload from './UploadImage'
+import DeleteAcount from './DeleteAcount';
 
 
 const EditProfile = () => {
@@ -47,7 +48,7 @@ const EditProfile = () => {
   };
   useEffect(() => {
     if (updateSuccess) {
-      // lo he echo para actualizar el nivel del usuario 
+      // lo he hecho para actualizar el nivel del usuario 
       getProfile();
     }
   }, [updateSuccess, getProfile]);
@@ -262,6 +263,11 @@ const getNextLevel = (currentLevel) => {
             <img src={profile.avatar} alt="Profile" className="w-full rounded-md" />
           </div>
         )}
+
+      <hr className="my-6" />
+      <h2 className="text-xl font-semibold text-center mb-4">Borrar la cuenta</h2>
+      <DeleteAcount userId={profile._id}/>
+
     </div>
   );
 };

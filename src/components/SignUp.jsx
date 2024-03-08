@@ -8,7 +8,7 @@ const SignUp = () => {
   const navigate = useNavigate();
   const [image, setImage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const [formData, setFormData] = useState({
+  const [userData, setUserData] = useState({
     name: '',
     lastName: '',
     nickname: '',
@@ -18,8 +18,8 @@ const SignUp = () => {
   });
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
+    setUserData({
+      ...userData,
       [e.target.name]: e.target.value,
     });
   };
@@ -32,10 +32,9 @@ const SignUp = () => {
     }
     try {
       console.log('Image before submission:', image);
-      const response = await registerUser(formData);
+      const response = await registerUser({ ...userData, avatar: image });
       console.log('User registered successfully:', response.data);
       navigate('/');
-
     } catch (error) {
       console.error('Error registering user:', error);
     }
@@ -55,7 +54,7 @@ const SignUp = () => {
             type="text"
             id="name"
             name="name"
-            value={formData.name}
+            value={userData.name}
             onChange={handleChange}
             required
             className="border border-gray-300 rounded-md px-3 py-2 w-full"
@@ -69,7 +68,7 @@ const SignUp = () => {
             type="text"
             id="lastName"
             name="lastName"
-            value={formData.lastName}
+            value={userData.lastName}
             onChange={handleChange}
             className="border border-gray-300 rounded-md px-3 py-2 w-full"
           />
@@ -82,7 +81,7 @@ const SignUp = () => {
             type="text"
             id="nickname"
             name="nickname"
-            value={formData.nickname}
+            value={userData.nickname}
             onChange={handleChange}
             required
             className="border border-gray-300 rounded-md px-3 py-2 w-full"
@@ -96,7 +95,7 @@ const SignUp = () => {
             type="email"
             id="email"
             name="email"
-            value={formData.email}
+            value={userData.email}
             onChange={handleChange}
             required
             className="border border-gray-300 rounded-md px-3 py-2 w-full"
@@ -110,7 +109,7 @@ const SignUp = () => {
             type="password"
             id="password"
             name="password"
-            value={formData.password}
+            value={userData.password}
             onChange={handleChange}
             required
             className="border border-gray-300 rounded-md px-3 py-2 w-full"
